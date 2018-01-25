@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-//asdasd啊啊啊啊
         mainToolBar.setOnLeftButtonClickListener(new MyToolBar.OnLeftButtonClickListener() {
             @Override
             public void onClick() {

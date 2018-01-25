@@ -21,11 +21,15 @@ public class LoggingInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        Request request = chain.request()
-                .newBuilder()
-                .addHeader(UA, makeUA())
-                .build();
-        return chain.proceed(request);
+        Request request = chain.request();
+        String url = request.url().toString();
+        //添加了新的公共参数
+        url=url+"source=android";
+                Request request1=request.newBuilder()
+                        .url(url)
+                        .addHeader(UA, makeUA())
+                        .build();
+        return chain.proceed(request1);
     }
 
     private String makeUA() {
