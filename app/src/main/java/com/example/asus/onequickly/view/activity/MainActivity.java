@@ -17,5 +17,7 @@ public class MainActivity extends AppCompatActivity {
         //设置标题的方法
         main_tool_bar.settittle("推荐");
 
+
+
     }
 }
