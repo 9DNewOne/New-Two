@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">一刻钟</string>
+
+    <string name="menu_concern">我的关心</string>
+    <string name="menu_collect">我的收藏</string>
+    <string name="menu_Search_for_friends">搜索好友</string>
+    <string name="menu_inform">消息通知</string>
+    <string name="communicate">Communicate</string>
+    <string name="system_settings">系统设置</string>
+    <string name="night_mode">夜间模式</string>
+    <string name="my">我的</string>
+    <string name="my_works">我的作品</string>
+    <string name="set">设置</string>
+
 </resources>

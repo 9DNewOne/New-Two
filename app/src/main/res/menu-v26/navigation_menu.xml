@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/action_concern"
+            android:icon="@mipmap/ic_menu_concern"
+            android:title="@string/menu_concern" />
+        <item
+            android:id="@+id/action_collect"
+            android:icon="@mipmap/ic_menu_collect"
+            android:title="@string/menu_collect" />
+        <item
+            android:id="@+id/action_Search"
+            android:icon="@mipmap/ic_menu_search_for_friends"
+            android:title="@string/menu_Search_for_friends" />
+        <item
+            android:id="@+id/action_inform"
+            android:icon="@mipmap/ic_menu_inform"
+            android:title="@string/menu_inform" />
+
+    </group>
+
+    <!--夜间模式-->
+    <item android:title="@string/system_settings">
+        <menu>
+            <item
+                android:id="@+id/ic_menu_night"
+                android:icon="@mipmap/night"
+                android:title="@string/night_mode" />
+
+        </menu>
+    </item>
+
+    <!--我的-->
+    <item android:title="@string/my">
+        <menu>
+            <item
+
+                android:id="@+id/ic_menu_my_works"
+                android:icon="@mipmap/my_work"
+                android:title="@string/my_works" />
+            <item
+                android:id="@+id/ic_menu_set"
+                android:icon="@mipmap/set"
+                android:title="@string/set" />
+
+        </menu>
+    </item>
+
+
+</menu>

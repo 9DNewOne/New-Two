@@ -3,40 +3,47 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="56dp"
-    android:background="@android:color/holo_blue_light"
-    >
-<com.facebook.drawee.view.SimpleDraweeView
-    android:layout_centerVertical="true"
-    android:id="@+id/user_icon"
-    android:layout_marginLeft="@dimen/x16"
-    fresco:placeholderImage="@mipmap/ic_launcher"
-    fresco:roundAsCircle="true"
-    android:layout_width="@dimen/x24"
-    android:layout_height="@dimen/x24" />
-<TextView
-    android:id="@+id/tool_tittle"
-    android:gravity="center"
-    android:layout_toRightOf="@+id/user_icon"
-    android:layout_toLeftOf="@+id/user_creat"
-    android:textColor="@android:color/white"
-    android:textSize="16sp"
-    android:text="默认文字，请调用settittle（）设置"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
 
-    <ImageView
-        android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/x16"
-        android:layout_alignParentRight="true"
-        android:id="@+id/user_creat"
-        android:src="@drawable/icon_create"
-        android:layout_width="@dimen/x24"
-        android:layout_height="@dimen/x24" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@android:color/holo_blue_light">
 
-</RelativeLayout>
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/user_icon"
+            android:layout_width="@dimen/x24"
+            android:layout_height="@dimen/x24"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x16"
+            android:layout_marginStart="@dimen/x16"
+            fresco:placeholderImage="@mipmap/ic_launcher"
+            fresco:roundAsCircle="true" />
+
+        <TextView
+            android:id="@+id/tool_tittle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/user_icon"
+            android:layout_toLeftOf="@+id/user_creat"
+            android:layout_toRightOf="@+id/user_icon"
+            android:layout_toStartOf="@+id/user_creat"
+            android:gravity="center"
+            android:text="默认文字，请调用settittle（）设置"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/user_creat"
+            android:layout_width="@dimen/x24"
+            android:layout_height="@dimen/x24"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/x16"
+            android:layout_marginRight="@dimen/x16"
+            android:src="@drawable/icon_create" />
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

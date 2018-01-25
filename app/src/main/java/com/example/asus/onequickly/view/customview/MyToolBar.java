@@ -1,6 +1,7 @@
 package com.example.asus.onequickly.view.customview;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,30 +35,57 @@ public class MyToolBar extends RelativeLayout {
 
         user_creat = view.findViewById(R.id.user_creat);
 
-        //头像点击事件
-        user_icon.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context,"想写点击事件，来cutomview包下的mytoolbar修改",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        //用户创建时的点击事件
-        user_creat.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context,"想写点击事件，来cutomview包下的mytoolbar修改",Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        initListener();
 
         addView(view);
 
     }
+    /**
+     * 左右按钮的监听
+     */
+    private void initListener() {
+        user_icon.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onLeftButtonClickListener != null) {
+                    onLeftButtonClickListener.onClick();
+                }
+            }
+        });
+
+        user_creat.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onRightButtonClickListener != null) {
+                    onRightButtonClickListener.onClick();
+                }
+            }
+        });
+    }
+
+    public interface OnLeftButtonClickListener {
+        void onClick();
+    }
+
+    public interface OnRightButtonClickListener {
+        void onClick();
+
+    }
+
+    private OnLeftButtonClickListener onLeftButtonClickListener;
+    private OnRightButtonClickListener onRightButtonClickListener;
+
+    public void setOnLeftButtonClickListener(OnLeftButtonClickListener listener) {
+        onLeftButtonClickListener = listener;
+    }
+
+    public void setOnRightButtonClickListener(OnRightButtonClickListener listener) {
+        onRightButtonClickListener = listener;
+    }
     //修改中间文字的方法
-    public void settittle(String string){
+    public void setTittle(String string){
         if(tool_tittle!=null){
-        tool_tittle.setText(string);
+            tool_tittle.setText(string);
         }
     }
 
@@ -66,7 +94,6 @@ public class MyToolBar extends RelativeLayout {
     public MyToolBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
 
 
 }
