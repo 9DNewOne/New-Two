@@ -24,7 +24,7 @@ public class LoggingInterceptor implements Interceptor {
         Request request = chain.request();
         String url = request.url().toString();
         //添加了新的公共参数
-        url=url+"source=android";
+        url=url+"&source=android&appVersion=101";
                 Request request1=request.newBuilder()
                         .url(url)
                         .addHeader(UA, makeUA())

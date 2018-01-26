@@ -16,6 +16,7 @@ public abstract class BaseActivity<V,P extends BasePresenter<V>> extends AppComp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //presenter连接view与model
         presenter=addpresenter();
         //连接视图

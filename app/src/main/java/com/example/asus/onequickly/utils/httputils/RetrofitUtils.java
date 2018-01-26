@@ -16,9 +16,8 @@ public class RetrofitUtils {
     public static APIService getInstance(){
         if(service == null){
             synchronized (RetrofitUtils.class){
-
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://m.yunifang.com")
+                        .baseUrl("https://www.zhaoapi.cn/")
                         .addConverterFactory(ScalarsConverterFactory.create())
                         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                         .client(OkHttpUtils.getInstance())
@@ -28,5 +27,4 @@ public class RetrofitUtils {
         }
         return service;
     }
-
 }
