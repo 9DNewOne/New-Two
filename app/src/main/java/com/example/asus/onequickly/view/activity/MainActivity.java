@@ -1,5 +1,6 @@
 package com.example.asus.onequickly.view.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,6 +9,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.asus.onequickly.R;
@@ -40,6 +43,24 @@ public class MainActivity extends AppCompatActivity {
         MyToolBar main_tool_bar=findViewById(R.id.main_tool_bar);
         //设置标题的方法
         main_tool_bar.setTittle("推荐");
+
+           //TouXiang01  头像点击事jian
+
+
+
+        //点击头像选择登录     跳转activity 选择登录方式
+        View headerView = mViewNavigationView.getHeaderView(0);
+
+        ImageView imageViewbtn = headerView.findViewById(R.id.TouXiang01);
+
+        imageViewbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SecondActivity.class));
+            }
+        });
+
+
 
              BottomTabBar bottomTabBar=findViewById(R.id.mbottombar);
 

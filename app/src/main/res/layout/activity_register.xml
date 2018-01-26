@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#8DD1E4">
+
+
+    <ImageView
+        android:id="@+id/registimageback"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="17dp"
+        android:background="@mipmap/rawback" />
+
+
+    <!-- padding 内边距  layout_margin 外边距
+            android:layout_alignParentTop 布局的位置是否处于顶部 -->
+
+    <TextView
+
+        android:id="@+id/registzhucenumber"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/registimageback"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:text="已有账号?"
+        android:gravity="center"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/registlogintouxiang"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+
+        android:layout_below="@+id/registimageback"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/headerph" />
+
+    <RelativeLayout
+        android:id="@+id/registlogin_div"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/background_login_div_bg"
+        android:padding="15dip">
+
+
+        <!--    &lt;!&ndash; 账号 &ndash;&gt;
+        <TextView
+            android:id="@+id/login_user_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:text="@string/login_label_username"
+            style="@style/normalText"/>-->
+        <EditText
+            android:id="@+id/registusername_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="账号"
+            android:inputType="text"
+            android:singleLine="true" />
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/registusername_edit"
+            android:layout_marginTop="3dp"
+            android:background="#020202" />
+
+
+        <EditText
+            android:id="@+id/registpassword_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/registusername_edit"
+            android:layout_marginTop="15dp"
+            android:background="@null"
+            android:hint="密码"
+            android:inputType="textPassword"
+            android:password="true"
+            android:singleLine="true" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/registbutton"
+        android:layout_width="fill_parent"
+
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/registlogin_div"
+        android:layout_marginTop="43dp"
+        android:background="@drawable/loginbackcolor"
+        android:text="注册"
+        android:textSize="20dp" />
+
+
+</RelativeLayout>
