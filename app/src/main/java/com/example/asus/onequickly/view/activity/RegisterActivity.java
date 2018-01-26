@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.asus.onequickly.R;
 import com.example.asus.onequickly.model.bean.LoginBean;
 import com.example.asus.onequickly.model.bean.RegistBean;
-import com.example.asus.onequickly.presenter.localpresenter.Mypresenter;
+import com.example.asus.onequickly.presenter.httppresenter.Mypresenter;
 import com.example.asus.onequickly.view.viewcallback.IViewShoudata;
 
 

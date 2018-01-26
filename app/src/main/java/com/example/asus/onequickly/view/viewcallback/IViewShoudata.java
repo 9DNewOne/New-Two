@@ -9,8 +9,7 @@ import com.example.asus.onequickly.model.bean.RegistBean;
 
 public interface IViewShoudata {
 
-      public void IviewShooudata(RegistBean registBean);
-              void IvewShouLogindata(LoginBean loginBean);
-
+     void IviewShooudata(RegistBean registBean);
+     void IvewShouLogindata(LoginBean loginBean);
 
 }

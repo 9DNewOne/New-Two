@@ -1,4 +1,4 @@
-package com.example.asus.onequickly.presenter.localpresenter;
+package com.example.asus.onequickly.presenter.httppresenter;
 
 import android.content.Context;
 

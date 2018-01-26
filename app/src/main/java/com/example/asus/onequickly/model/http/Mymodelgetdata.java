@@ -15,11 +15,10 @@ import java.util.Map;
  */
 
 public class Mymodelgetdata  implements Imodlegetdatabase{
-
 //https://www.zhaoapi.cn/quarter/register?source=android&mobile=17316250426&password=1234567
 
     @Override
-    public void getmodledata(String mobile, String password, AbstractObserver<RegistBean> observer) {
+    public void getmodledata(String mobile,String password,AbstractObserver<RegistBean> observer) {
         Map<String,String> map= new HashMap();
         map.put("mobile",mobile);
         map.put("password",password);
@@ -30,7 +29,6 @@ public class Mymodelgetdata  implements Imodlegetdatabase{
     @Override
     public void getmodellogin(String mobile, String password, String token, AbstractObserver<LoginBean> observer) {
       //   https://www.zhaoapi.cn/user/login?source=android&mobile=17316250426&password=123456789&token=FBF1
-
         Map<String,String> map= new HashMap();
         map.put("mobile",mobile);
         map.put("password",password);

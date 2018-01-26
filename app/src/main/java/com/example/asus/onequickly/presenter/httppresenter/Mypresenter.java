@@ -1,4 +1,4 @@
-package com.example.asus.onequickly.presenter.localpresenter;
+package com.example.asus.onequickly.presenter.httppresenter;
 
 import android.content.Context;
 
@@ -27,12 +27,10 @@ public class Mypresenter {
 
       public void aishasha(String mobile,String password)
       {
-
          modle.getmodledata(mobile, password, new AbstractObserver<RegistBean>() {
              @Override
              public void onSuccess(RegistBean registBean) {
                   view.IviewShooudata(registBean);
-
                }
 
              @Override
