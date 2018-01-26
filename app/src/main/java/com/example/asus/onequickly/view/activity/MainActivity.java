@@ -1,5 +1,6 @@
 package com.example.asus.onequickly.view.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -11,6 +12,11 @@ import android.widget.Toast;
 
 import com.example.asus.onequickly.R;
 import com.example.asus.onequickly.view.customview.MyToolBar;
+import com.example.asus.onequickly.view.fragment.MoviesFragment;
+import com.example.asus.onequickly.view.fragment.PhotosFragment;
+import com.example.asus.onequickly.view.fragment.Recommendfragment;
+import com.example.asus.onequickly.view.fragment.SatinFragment;
+import com.hjm.bottomtabbar.BottomTabBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +40,27 @@ public class MainActivity extends AppCompatActivity {
         MyToolBar main_tool_bar=findViewById(R.id.main_tool_bar);
         //设置标题的方法
         main_tool_bar.setTittle("推荐");
+
+             BottomTabBar bottomTabBar=findViewById(R.id.mbottombar);
+
+             bottomTabBar.init(getSupportFragmentManager())
+                     .setImgSize(40, 40)
+                     .setFontSize(10)
+                     .setTabPadding(6, 6, 10)
+                     .setChangeColor(Color.RED, Color.DKGRAY)
+
+                     .addTabItem("推荐", R.mipmap.tuijian_select,Recommendfragment.class)
+                     .addTabItem("段子", R.mipmap.duanzi_default,SatinFragment.class)
+                     .addTabItem("视频", R.mipmap.video_defaults,MoviesFragment.class)
+                     .addTabItem("趣图", R.mipmap.qutuu,PhotosFragment.class)
+                     .isShowDivider(false)
+                     .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener(){
+                         @Override
+                         public void onTabChange(int position, String name) {
+                         }
+                     });
+
+
 
         //////////////////////////////////////NavigationView导航菜单////////////////////////////////////////////////
         mViewNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

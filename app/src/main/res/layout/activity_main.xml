@@ -7,12 +7,41 @@
     android:layout_height="match_parent"
     tools:context="com.example.asus.onequickly.view.activity.MainActivity">
 
-    <com.example.asus.onequickly.view.customview.MyToolBar
-        android:id="@+id/main_tool_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/x56" />
+     <LinearLayout
+        android:orientation="vertical"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+          >
+         <com.example.asus.onequickly.view.customview.MyToolBar
+             android:id="@+id/main_tool_bar"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/x56"
 
-        
+             />
+
+         <RelativeLayout
+             android:id="@+id/main_content"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             >
+
+             <com.hjm.bottomtabbar.BottomTabBar
+                 android:id="@+id/mbottombar"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_alignParentBottom="true"
+                 >
+             </com.hjm.bottomtabbar.BottomTabBar>
+
+
+
+         </RelativeLayout>
+
+
+
+     </LinearLayout>
+
+
     <!--导航菜单-->
     <android.support.design.widget.NavigationView
         android:id="@+id/view_navigation"
