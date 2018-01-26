@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/New-Two.iml" filepath="$PROJECT_DIR$/New-Two.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/suicole.iml" filepath="$PROJECT_DIR$/suicole.iml" />
+      <module fileurl="file://E:\Androidstudio3.0\OneWork\New-Two\app\app.iml" filepath="E:\Androidstudio3.0\OneWork\New-Two\app\app.iml" />
+      <module fileurl="file://E:\Androidstudio3.0\OneWork\New-Two\suicole.iml" filepath="E:\Androidstudio3.0\OneWork\New-Two\suicole.iml" />
     </modules>
   </component>
 </project>

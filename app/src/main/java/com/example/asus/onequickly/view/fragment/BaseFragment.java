@@ -11,7 +11,6 @@ import com.example.asus.onequickly.presenter.httppresenter.BasePresenter;
 /**
  * Created by asus on 2017/12/29.
  */
-
 public abstract class BaseFragment<V,P extends BasePresenter<V>> extends Fragment {
     public Context context;
     public P presenter;
@@ -31,6 +30,7 @@ public abstract class BaseFragment<V,P extends BasePresenter<V>> extends Fragmen
         if(presenter!=null){
             presenter.attachview((V) this);
         }
+
     }
 
 
