@@ -14,20 +14,25 @@ import android.widget.Toast;
 import com.example.asus.onequickly.R;
 import com.example.asus.onequickly.model.bean.LoginBean;
 import com.example.asus.onequickly.model.bean.RegistBean;
-import com.example.asus.onequickly.presenter.httppresenter.Mypresenter;
-import com.example.asus.onequickly.view.viewcallback.IViewShoudata;
+import com.example.asus.onequickly.presenter.httppresenter.MyRegistPresenter;
+import com.example.asus.onequickly.view.viewcallback.IregistView;
 
 
 //BaseActivity<IViewShoudata,Mypresenter>
 //注册的Activity
-public class RegisterActivity extends Activity  implements IViewShoudata {
+public class RegisterActivity extends BaseActivity<IregistView,MyRegistPresenter>implements IregistView {
 
-        Mypresenter mypresenter= new Mypresenter(this,this);
+//        Mypresenter mypresenter= new Mypresenter(this,this);
 
                  private EditText registusername_edit;
                  private EditText registpassword_edit;
 
   //https://www.zhaoapi.cn/quarter/register?source=android&mobile=17316250426&password=1234567
+
+    @Override
+    public MyRegistPresenter addpresenter() {
+        return new MyRegistPresenter(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +50,7 @@ public class RegisterActivity extends Activity  implements IViewShoudata {
                //   Toast.makeText(RegisterActivity.this,"点击事件"++,Toast.LENGTH_SHORT).show();
 
                 //调 获取数据
-                mypresenter.aishasha(registusername_edit.getText().toString(),registpassword_edit.getText().toString());
+                presenter.regisdata(registusername_edit.getText().toString(),registpassword_edit.getText().toString());
 
             }
         });
@@ -59,31 +64,25 @@ public class RegisterActivity extends Activity  implements IViewShoudata {
         });
     }
 
-    @Override
-    public void IviewShooudata(RegistBean registBean) {
 
+    @Override
+    public void Registdata(RegistBean registBean) {
         Log.i("=========",registBean.getMsg());
 
 
-             //请求到的bean   //在这里做做个判断 如果存在 就是注册过 不存在就是注册成功
+        //请求到的bean   //在这里做做个判断 如果存在 就是注册过 不存在就是注册成功
         String msg = registBean.getMsg();
-     if (msg.equals("天呢！用户已注册")){
-         Toast.makeText(RegisterActivity.this,"天呢！用户已注册",Toast.LENGTH_SHORT).show();
+        if (msg.equals("天呢！用户已注册")){
+            Toast.makeText(RegisterActivity.this,"天呢！用户已注册",Toast.LENGTH_SHORT).show();
 
-     }else{
-         Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
 
-          if (msg.equals("注册成功")){
-              RegisterActivity.this.finish();
+            if (msg.equals("注册成功")){
+                RegisterActivity.this.finish();
 
-          }
+            }
 
-     }
-
-    }
-
-    @Override
-    public void IvewShouLogindata(LoginBean loginBean) {
-
+        }
     }
 }

@@ -20,35 +20,43 @@ import android.widget.Toast;
 import com.example.asus.onequickly.R;
 import com.example.asus.onequickly.model.bean.LoginBean;
 import com.example.asus.onequickly.model.bean.RegistBean;
-import com.example.asus.onequickly.presenter.httppresenter.Myloginpresenter;
-import com.example.asus.onequickly.view.viewcallback.IViewShoudata;
+import com.example.asus.onequickly.presenter.httppresenter.MyLogPresenter;
+import com.example.asus.onequickly.view.viewcallback.IlogView;
 
 
-public class OtherloginActivity extends AppCompatActivity implements IViewShoudata {
+public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>implements IlogView {
 
-         Myloginpresenter myloginpresenter=new Myloginpresenter(this,this);
+//         Myloginpresenter myloginpresenter=new Myloginpresenter(this,this);
     public static boolean bIsGuestLogin = false;//是否游客登录，这个变量用于其他界面数据的处理
     private EditText mUserName = null;
     private EditText mPassword = null;
     private Button loginbutton;
     ProgressDialog m_Dialog;
+
+    @Override
+    public MyLogPresenter addpresenter() {
+        return new MyLogPresenter(this);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otherlogin);
+        mUserName= findViewById(R.id.username_edit);
+        mPassword=findViewById(R.id.password_edit);
+        loginbutton = findViewById(R.id.loginbutton);
 
         registButton(); //注册
         backfinish();//回退
         youkelogin(); //游客登录
         feikong();//输入框的非空判断
 
+
     }
 
     private void feikong() {
 
-        mUserName= findViewById(R.id.username_edit);
-        mPassword=findViewById(R.id.password_edit);
-        loginbutton = findViewById(R.id.loginbutton);
+
 
 
         loginbutton.setOnClickListener(new View.OnClickListener() {
@@ -56,11 +64,6 @@ public class OtherloginActivity extends AppCompatActivity implements IViewShouda
             public void onClick(View v) {
                 //记录游客登录
                 bIsGuestLogin = false;
-
-
-
-
-
 
                  if (mUserName.getText().toString().isEmpty() || mPassword.getText().toString().isEmpty())//判断是否输入相关值
                 {
@@ -85,7 +88,7 @@ public class OtherloginActivity extends AppCompatActivity implements IViewShouda
                 else
                 {
 
-                    myloginpresenter.Login(mUserName.getText().toString(),mPassword.getText().toString(),"");
+                    presenter.login(mUserName.getText().toString(),mPassword.getText().toString(),"");
 
                 }
 
@@ -141,29 +144,17 @@ public class OtherloginActivity extends AppCompatActivity implements IViewShouda
     }
 
     @Override
-    public void IviewShooudata(RegistBean registBean) {
-
-    }
-
-    @Override
-    public void IvewShouLogindata(LoginBean loginBean) {
-
+    public void Logindata(LoginBean loginBean) {
         String msg = loginBean.getMsg();
 
-         if (msg.equals("登录成功"))
-         {
-             Toast.makeText(OtherloginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
-         }else{
+        if (msg.equals("登录成功"))
+        {
+            Toast.makeText(OtherloginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
+        }else{
 
-             Toast.makeText(OtherloginActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
+            Toast.makeText(OtherloginActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
 
-         }
-
-
-        Log.i("-----------",loginBean.toString());
-
-
-
+        }
 
     }
 }
