@@ -101,7 +101,6 @@ public class SecondActivity extends AppCompatActivity {
                 public void onError(SHARE_MEDIA platform, int action, Throwable t) {
                    // Toast.makeText(SecondActivity.this, "失败：" + t.getMessage(),                                  Toast.LENGTH_LONG).show();
 
-
                 }
 
                 /**
@@ -111,7 +110,7 @@ public class SecondActivity extends AppCompatActivity {
                  */
                 @Override
                 public void onCancel(SHARE_MEDIA platform, int action) {
-                    Toast.makeText(SecondActivity.this, "取消了", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(SecondActivity.this, "取消了", Toast.LENGTH_LONG).show();
                 }
             };
 
