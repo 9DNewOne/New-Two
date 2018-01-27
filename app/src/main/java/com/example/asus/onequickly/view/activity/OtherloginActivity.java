@@ -145,6 +145,7 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
 
     @Override
     public void Logindata(LoginBean loginBean) {
+
         String msg = loginBean.getMsg();
 
         if (msg.equals("登录成功"))

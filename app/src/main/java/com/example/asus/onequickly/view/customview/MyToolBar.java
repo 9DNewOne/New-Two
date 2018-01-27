@@ -88,6 +88,12 @@ public class MyToolBar extends RelativeLayout {
             tool_tittle.setText(string);
         }
     }
+    //替换头像方法
+    public void setUser_icon(String str){
+        if(user_icon!=null){
+            user_icon.setImageURI(str);
+        }
+    }
 
 
 
