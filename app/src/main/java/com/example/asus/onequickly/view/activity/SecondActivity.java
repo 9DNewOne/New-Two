@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.example.asus.onequickly.R;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
@@ -34,16 +33,10 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-           //微信第三方登录
-           Button weixinbutton=findViewById(R.id.weixinbutton);
-            weixinbutton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                  //集成推送
-                    Toast.makeText(SecondActivity.this,"sdfgbsdf",Toast.LENGTH_SHORT).show();
-                }
+          BackpageUp();//箭头图片返回上一页
+          weixinlog();  //微信第三方登录
+          otherlog();//其他方式登录
 
-            });
 
           //QQ第三方登录
           Button qqlonginbtn=findViewById(R.id.qqlonginbtn);
@@ -51,21 +44,11 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-             UMShareAPI.get(SecondActivity.this).getPlatformInfo(SecondActivity.this, SHARE_MEDIA.QQ, authListener );
+                UMShareAPI.get(SecondActivity.this).getPlatformInfo(SecondActivity.this, SHARE_MEDIA.QQ, authListener);
 
 
             }
         });
-
-           //其他方式登录
-       TextView  textviewqita=findViewById(R.id.textviewqita);
-        textviewqita.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               startActivity(new Intent(SecondActivity.this,OtherloginActivity.class));
-            }
-        });
-
           authListener = new UMAuthListener() {
                 /**
                  * @desc 授权开始的回调
@@ -88,7 +71,7 @@ public class SecondActivity extends AppCompatActivity {
                 public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
 
                     Toast.makeText(SecondActivity.this, "成功了", Toast.LENGTH_LONG).show();
-                        Log.i("-------",data.toString());
+                        Log.i("-----------",data.toString());
 
                 }
                 /**
@@ -99,10 +82,9 @@ public class SecondActivity extends AppCompatActivity {
                  */
                 @Override
                 public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-                   Toast.makeText(SecondActivity.this, "登录失败：" + t.getMessage(),                                  Toast.LENGTH_LONG).show();
+                    Toast.makeText(SecondActivity.this, "失败：" + t.getMessage(),                                  Toast.LENGTH_LONG).show();
 
                 }
-
                 /**
                  * @desc 授权取消的回调
                  * @param platform 平台名称
@@ -110,25 +92,56 @@ public class SecondActivity extends AppCompatActivity {
                  */
                 @Override
                 public void onCancel(SHARE_MEDIA platform, int action) {
-                   Toast.makeText(SecondActivity.this, "取消了", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SecondActivity.this, "取消了", Toast.LENGTH_LONG).show();
                 }
             };
-
-          //箭头图片返回上一页
-        ImageView imaeviewback=findViewById(R.id.imageback);
-           imaeviewback.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                    finish();
-               }
-           });
     }
 
+    private void otherlog() {
+        //其他方式登录
+        TextView  textviewqita=findViewById(R.id.textviewqita);
+        textviewqita.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SecondActivity.this,OtherloginActivity.class));
+            }
+        });
 
-   @Override
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
     }
+
+
+    private void weixinlog() {
+        //微信第三方登录
+        Button weixinbutton=findViewById(R.id.weixinbutton);
+        weixinbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //集成推送
+                Toast.makeText(SecondActivity.this,"sdfgbsdf",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    private void BackpageUp() {
+        //箭头图片返回上一页
+        ImageView imaeviewback=findViewById(R.id.imageback);
+        imaeviewback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+    }
+
+
+
 
 }
