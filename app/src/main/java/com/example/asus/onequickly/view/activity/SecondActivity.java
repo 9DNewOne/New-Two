@@ -86,9 +86,9 @@ public class SecondActivity extends AppCompatActivity {
 
                     @Override
                 public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
-
+/*
                     Toast.makeText(SecondActivity.this, "成功了", Toast.LENGTH_LONG).show();
-                        Log.i("-------",data.toString());
+                        Log.i("-------",data.toString());*/
 
                 }
                 /**
@@ -99,7 +99,9 @@ public class SecondActivity extends AppCompatActivity {
                  */
                 @Override
                 public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-                    Toast.makeText(SecondActivity.this, "失败：" + t.getMessage(),                                  Toast.LENGTH_LONG).show();
+                   // Toast.makeText(SecondActivity.this, "失败：" + t.getMessage(),                                  Toast.LENGTH_LONG).show();
+
+
                 }
 
                 /**
