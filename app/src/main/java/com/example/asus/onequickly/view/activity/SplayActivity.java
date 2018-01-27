@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.asus.onequickly.R;
-
+//广告页
 public class SplayActivity extends AppCompatActivity {
     private Handler handler = new Handler();
     @Override
