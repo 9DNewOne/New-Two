@@ -41,7 +41,7 @@ public class SecondActivity extends AppCompatActivity {
           qqlonginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   UMShareAPI.get(SecondActivity.this).getPlatformInfo(SecondActivity.this, SHARE_MEDIA.QQ, authListener );
+             //UMShareAPI.get(SecondActivity.this).getPlatformInfo(SecondActivity.this, SHARE_MEDIA.QQ, authListener );
               }
         });
 

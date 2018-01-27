@@ -84,10 +84,8 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
                             .create();
                     dialog.show();
                 }
-
                 else
                 {
-
                     presenter.login(mUserName.getText().toString(),mPassword.getText().toString(),"");
 
                 }
@@ -104,7 +102,6 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
         textView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 bIsGuestLogin = true;
                 Intent intent = new Intent();
                 intent.setClass(OtherloginActivity.this,MainActivity.class);
@@ -135,9 +132,8 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
         TextView zhucenumber=findViewById(R.id.zhucenumber);
         zhucenumber.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
                 startActivity(new Intent(OtherloginActivity.this,RegisterActivity.class));
-
             }
         });
 
@@ -145,8 +141,8 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
 
     @Override
     public void Logindata(LoginBean loginBean) {
-
         String msg = loginBean.getMsg();
+
 
         if (msg.equals("登录成功"))
         {
@@ -155,6 +151,19 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
 
             Toast.makeText(OtherloginActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
 
+        }
+
+
+        if (msg.equals("登录成功")){
+            //Object icon = loginBean.getData().getIcon();
+              startActivity(new Intent(OtherloginActivity.this,MainActivity.class));
+
+          /*  Intent intent = new Intent();
+
+            //  intent.putExtra("kay",icon);
+
+           Log.i("=========",icon.toString());
+*/
         }
 
     }
