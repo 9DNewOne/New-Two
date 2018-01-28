@@ -6,20 +6,16 @@ import android.app.ProgressDialog;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.asus.onequickly.R;
 import com.example.asus.onequickly.model.bean.LoginBean;
-import com.example.asus.onequickly.model.bean.RegistBean;
 import com.example.asus.onequickly.presenter.httppresenter.MyLogPresenter;
 import com.example.asus.onequickly.view.viewcallback.IlogView;
 
@@ -55,8 +51,6 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
     }
 
     private void feikong() {
-
-
 
 
         loginbutton.setOnClickListener(new View.OnClickListener() {
@@ -153,17 +147,42 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
 
         }
 
-
         if (msg.equals("登录成功")){
             //Object icon = loginBean.getData().getIcon();
               startActivity(new Intent(OtherloginActivity.this,MainActivity.class));
+              finish();
 
-          /*  Intent intent = new Intent();
 
-            //  intent.putExtra("kay",icon);
+           //登录成功的uid
+            int uid = loginBean.getData().getUid();
 
-           Log.i("=========",icon.toString());
-*/
+            //登录成功的token
+            String token = loginBean.getData().getToken();
+
+            //登录到的状态
+            boolean Islogin = loginBean.getData().isIslogin();
+
+            if (Islogin==false)
+            {
+                Islogin=true;
+            }
+
+            //提取保存
+                     SharedPreferences sharedPreferences = getSharedPreferences("login",MODE_PRIVATE);
+                       SharedPreferences.Editor editor = sharedPreferences.edit();
+                       editor.putString("token",token);
+                       editor.putInt("uid",uid);
+                       editor.putBoolean("Islogin",Islogin);
+                       editor.commit();
+                       Toast.makeText(OtherloginActivity.this, "保存数据成功"+token+uid+Islogin, Toast.LENGTH_SHORT).show();
+
+
+        }
+        String code = loginBean.getCode();
+        if (code.equals("2")){
+
+            Toast.makeText(OtherloginActivity.this, "账号逾期请重新注册", Toast.LENGTH_SHORT).show();
+
         }
 
     }

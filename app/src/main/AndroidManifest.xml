@@ -36,7 +36,6 @@
             android:launchMode="singleTask"
             android:noHistory="true">
 
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -44,7 +43,6 @@
                 <data android:scheme="tencent100424468" />
             </intent-filter>
         </activity>
-
 
         <activity
             android:name="com.umeng.qq.tencent.AssistActivity"
@@ -56,6 +54,7 @@
             android:name="UMENG_APPKEY"
             android:value="561cae6ae0f55abd990035bf" >
         </meta-data>
+
 
     </application>
 

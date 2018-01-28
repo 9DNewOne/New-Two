@@ -84,6 +84,16 @@ public class LoginBean {
         private int uid;
         private Object userId;
         private String username;
+        private  boolean islogin;
+
+        public boolean isIslogin() {
+            return islogin;
+        }
+
+        public void setIslogin(boolean islogin) {
+            this.islogin = islogin;
+        }
+
 
         public Object getAge() {
             return age;
