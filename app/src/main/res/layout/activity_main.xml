@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.asus.onequickly.view.activity.MainActivity">
 
+
      <LinearLayout
         android:orientation="vertical"
          android:layout_width="match_parent"
@@ -32,8 +33,6 @@
                  android:layout_alignParentBottom="true"
                  >
              </com.hjm.bottomtabbar.BottomTabBar>
-
-
 
          </RelativeLayout>
 

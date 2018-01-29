@@ -33,15 +33,12 @@ public class SecondActivity extends AppCompatActivity {
           BackpageUp();//箭头图片返回上一页
           weixinlog();  //微信第三方登录
           otherlog();//其他方式登录
-
-        
           //QQ第三方登录
           Button qqlonginbtn=findViewById(R.id.qqlonginbtn);
           qqlonginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UMShareAPI.get(SecondActivity.this).getPlatformInfo(SecondActivity.this, SHARE_MEDIA.QQ, authListener);
-
             }
         });
 
