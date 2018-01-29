@@ -71,8 +71,19 @@ public class MyFollowActivity extends BaseActivity<IFollowListView,MyFollowListP
             //当有数据时
             follow_yes.setVisibility(View.VISIBLE);
             follow_empty.setVisibility(View.GONE);
+            //实例化adapter
+            MyFollowListAdatper adapter=new MyFollowListAdatper(MyFollowActivity.this,bean);
             //设置适配器
-            follow_recycler.setAdapter(new MyFollowListAdatper(MyFollowActivity.this,bean));
+            follow_recycler.setAdapter(adapter);
+            //条目点击时间跳转到个人页面展示发布内容
+            adapter.setOnItemClickListener(new MyFollowListAdatper.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    //待处理
+                    Toast.makeText(MyFollowActivity.this,""+position,Toast.LENGTH_SHORT).show();
+
+                }
+            });
 
         }
     }
