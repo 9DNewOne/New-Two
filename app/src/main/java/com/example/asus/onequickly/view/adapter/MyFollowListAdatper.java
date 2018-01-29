@@ -36,8 +36,9 @@ public class MyFollowListAdatper extends RecyclerView.Adapter<MyFollowListAdatpe
 
     @Override
     public void onBindViewHolder(MyFollowHolder holder, int position) {
+        //设置内容
     holder.followCreatetime.setText(bean.getData().get(position).getCreatetime());
-    holder.followDescription.setText("暂无");
+    holder.followDescription.setText("暂无描述...");
     holder.followListIcon.setImageURI(bean.getData().get(position).getIcon()+"");
     holder.followName.setText(bean.getData().get(position).getUsername());
 

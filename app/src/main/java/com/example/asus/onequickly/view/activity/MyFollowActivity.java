@@ -51,7 +51,9 @@ public class MyFollowActivity extends BaseActivity<IFollowListView,MyFollowListP
         }else{
             //调用presenter方法 得到列表数据
             presenter.getfllowlistdatanow(token,uid+"");
+            //设置布局管理器
             follow_recycler.setLayoutManager(new LinearLayoutManager(MyFollowActivity.this));
+            //添加分割线
             follow_recycler.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         }
