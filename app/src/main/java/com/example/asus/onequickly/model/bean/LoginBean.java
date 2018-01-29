@@ -3,7 +3,6 @@ package com.example.asus.onequickly.model.bean;
 /**
  * Created by gq on 2018/1/26.
  */
-
 public class LoginBean {
 
     /**
@@ -15,8 +14,7 @@ public class LoginBean {
     private String msg;
     private String code;
     private DataBean data;
-
-    public String getMsg() {
+    public String getMsg()  {
         return msg;
     }
 
