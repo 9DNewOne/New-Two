@@ -20,6 +20,7 @@ public class OkHttpUtils {
                     client = new OkHttpClient.Builder()
                             .connectTimeout(20000, TimeUnit.SECONDS)
                             .writeTimeout(20000,TimeUnit.SECONDS)
+                            .addInterceptor(new LoggingInterceptor())
                             .readTimeout(20000,TimeUnit.SECONDS)
                             .build();
                 }

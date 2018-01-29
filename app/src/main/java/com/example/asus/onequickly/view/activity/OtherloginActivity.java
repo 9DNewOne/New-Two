@@ -28,7 +28,7 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
     private EditText mPassword = null;
     private Button loginbutton;
     ProgressDialog m_Dialog;
-
+    SharedPreferences sharedPreferences;
     @Override
     public MyLogPresenter addpresenter() {
         return new MyLogPresenter(this);
@@ -41,7 +41,9 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
         mUserName= findViewById(R.id.username_edit);
         mPassword=findViewById(R.id.password_edit);
         loginbutton = findViewById(R.id.loginbutton);
+        //提供sp
 
+        sharedPreferences = getSharedPreferences("login",MODE_PRIVATE);
         registButton(); //注册
         backfinish();//回退
         youkelogin(); //游客登录
@@ -161,21 +163,13 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
 
             //登录到的状态
             boolean Islogin = loginBean.getData().isIslogin();
-
-            if (Islogin==false)
-            {
                 Islogin=true;
-            }
-
             //提取保存
-                     SharedPreferences sharedPreferences = getSharedPreferences("login",MODE_PRIVATE);
                        SharedPreferences.Editor editor = sharedPreferences.edit();
                        editor.putString("token",token);
                        editor.putInt("uid",uid);
                        editor.putBoolean("Islogin",Islogin);
                        editor.commit();
-                       Toast.makeText(OtherloginActivity.this, "保存数据成功"+token+uid+Islogin, Toast.LENGTH_SHORT).show();
-
 
         }
         String code = loginBean.getCode();

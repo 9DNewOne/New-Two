@@ -247,4 +247,13 @@ public class FollowListBean {
             this.username = username;
         }
     }
+
+    @Override
+    public String toString() {
+        return "FollowListBean{" +
+                "msg='" + msg + '\'' +
+                ", code='" + code + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }

@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     NavigationView mViewNavigationView;
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
+    //提供全局的intent
+    Intent it;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.action_concern:
-                        Toast.makeText(MainActivity.this, "我的关心", Toast.LENGTH_SHORT).show();
+                        it=new Intent(MainActivity.this,MyFollowActivity.class);
+                        startActivity(it);
                         break;
                     case R.id.action_collect:
                         Toast.makeText(MainActivity.this, "我的收藏", Toast.LENGTH_SHORT).show();
