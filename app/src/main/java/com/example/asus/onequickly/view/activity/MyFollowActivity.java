@@ -22,6 +22,8 @@ public class MyFollowActivity extends BaseActivity<IFollowListView,MyFollowListP
     LinearLayout follow_yes;
     LinearLayout follow_empty;
     RecyclerView follow_recycler;
+    String token;
+    int uid;
     @Override
     public MyFollowListPresenter addpresenter() {
         return new MyFollowListPresenter(this);
@@ -41,10 +43,12 @@ public class MyFollowActivity extends BaseActivity<IFollowListView,MyFollowListP
         follow_yes = findViewById(R.id.follow_yes);
         SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
         //从sp取出的数据
-        String token = sp.getString("token", "");
-        int uid = sp.getInt("uid", 0);
+
+        token = sp.getString("token", "");
+
+        uid = sp.getInt("uid", 0);
         boolean islogin=sp.getBoolean("Islogin",false);
-        Log.i("++++++++", "onCreate: "+token+uid+islogin);
+        Log.i("++++++++", "onCreate: "+token+"///"+uid+"///"+islogin);
         if(token.equals("")&&uid==0&&islogin==false){
             Toast.makeText(MyFollowActivity.this,"您尚未登录，请先登录",Toast.LENGTH_SHORT).show();
             finish();
@@ -81,7 +85,6 @@ public class MyFollowActivity extends BaseActivity<IFollowListView,MyFollowListP
                 public void onItemClick(View view, int position) {
                     //待处理
                     Toast.makeText(MyFollowActivity.this,""+position,Toast.LENGTH_SHORT).show();
-
                 }
             });
 

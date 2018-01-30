@@ -40,7 +40,13 @@ public class MyFollowListAdatper extends RecyclerView.Adapter<MyFollowListAdatpe
     holder.followCreatetime.setText(bean.getData().get(position).getCreatetime());
     holder.followDescription.setText("暂无描述...");
     holder.followListIcon.setImageURI(bean.getData().get(position).getIcon()+"");
-    holder.followName.setText(bean.getData().get(position).getUsername());
+    if(bean.getData().get(position).getNickname()==null||"".equals(bean.getData().get(position).getNickname())){
+        holder.followName.setText(bean.getData().get(position).getUsername());
+    }else{
+        holder.followName.setText(bean.getData().get(position).getNickname()+"");
+    }
+
+
         holder.itemView.setTag(position);
     }
 
