@@ -5,5 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.asus.onequickly.view.activity.HotFollowActivity">
+    <android.support.design.widget.TabLayout
+        android:id="@+id/hot_follow_tab"
+        android:layout_width="match_parent"
+        app:tabIndicatorColor="@android:color/holo_blue_light"
+        app:tabTextColor="@android:color/darker_gray"
+        app:tabSelectedTextColor="@android:color/black"
+        android:layout_height="wrap_content" />
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/hot_follow_vp"
+        android:layout_below="@id/hot_follow_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>
