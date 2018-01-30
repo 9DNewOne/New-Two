@@ -5,8 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.asus.onequickly.view.activity.MyFollowActivity">
-
+    <RelativeLayout
+        android:id="@+id/myfollow_head"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_blue_light"
+        >
+        <TextView
+            android:id="@+id/my_follow_back"
+            android:layout_margin="16dp"
+            android:textColor="@android:color/white"
+            android:text=" 返回"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_height="match_parent" />
+        <TextView
+            android:layout_toRightOf="@+id/my_follow_back"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:text="我的关注"
+            android:layout_toLeftOf="@+id/my_follow_hotlist"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/my_follow_hotlist"
+            android:layout_margin="16dp"
+            android:textColor="@android:color/white"
+            android:text="热门关注"
+            android:layout_alignParentRight="true"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
     <FrameLayout
+        android:layout_below="@+id/myfollow_head"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout

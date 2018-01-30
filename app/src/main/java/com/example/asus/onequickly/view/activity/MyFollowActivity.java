@@ -1,6 +1,7 @@
 package com.example.asus.onequickly.view.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asus.onequickly.R;
@@ -23,6 +25,8 @@ public class MyFollowActivity extends BaseActivity<IFollowListView,MyFollowListP
     LinearLayout follow_empty;
     RecyclerView follow_recycler;
     String token;
+    TextView my_follow_back;
+    TextView my_follow_hotlist;
     int uid;
     @Override
     public MyFollowListPresenter addpresenter() {
@@ -41,6 +45,25 @@ public class MyFollowActivity extends BaseActivity<IFollowListView,MyFollowListP
 
         follow_recycler = findViewById(R.id.follow_recycler);
         follow_yes = findViewById(R.id.follow_yes);
+        my_follow_back=findViewById(R.id.my_follow_back);
+        my_follow_hotlist=findViewById(R.id.my_follow_hotlist);
+        //返回上一层
+        my_follow_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        //进入热门关注
+        my_follow_hotlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //跳转到 热门关注列表
+                Intent it=new Intent(MyFollowActivity.this,HotFollowActivity.class);
+                startActivity(it);
+            }
+        });
+
         SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
         //从sp取出的数据
 
@@ -85,6 +108,7 @@ public class MyFollowActivity extends BaseActivity<IFollowListView,MyFollowListP
                 public void onItemClick(View view, int position) {
                     //待处理
                     Toast.makeText(MyFollowActivity.this,""+position,Toast.LENGTH_SHORT).show();
+
                 }
             });
 
