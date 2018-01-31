@@ -5,7 +5,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.asus.onequickly.view.activity.HotFollowActivity">
+    <RelativeLayout
+        android:id="@+id/my_follow_hot_head"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_blue_light"
+        >
+        <TextView
+            android:id="@+id/my_hotfollow_back"
+            android:layout_margin="16dp"
+            android:textColor="@android:color/white"
+            android:text=" 返回"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_height="match_parent" />
+        <TextView
+            android:layout_toRightOf="@+id/my_hotfollow_back"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:text="热门关注"
+            android:layout_toLeftOf="@+id/my_hotfollow"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <FrameLayout
+            android:id="@+id/my_hotfollow"
+            android:textColor="@android:color/white"
+            android:layout_alignParentRight="true"
+            android:layout_width="150dp"
+            android:layout_height="match_parent" >
+            <EditText
+                android:id="@+id/myfollow_hotet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="输入关键字"
+                android:paddingRight="20dp"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:background="@null"
+                android:textSize="12sp"/>
+            <ImageView
+                android:id="@+id/my_follow_hot_Search"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="50dp"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                android:src="@drawable/ic_menu_search_for_friends"/>
+        </FrameLayout>
+    </RelativeLayout>
     <android.support.design.widget.TabLayout
+        android:layout_below="@+id/my_follow_hot_head"
         android:id="@+id/hot_follow_tab"
         android:layout_width="match_parent"
         app:tabIndicatorColor="@android:color/holo_blue_light"
@@ -14,6 +66,7 @@
         android:layout_height="wrap_content" />
 
     <android.support.v4.view.ViewPager
+        android:layout_alignParentBottom="true"
         android:id="@+id/hot_follow_vp"
         android:layout_below="@id/hot_follow_tab"
         android:layout_width="match_parent"

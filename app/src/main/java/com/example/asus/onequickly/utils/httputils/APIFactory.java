@@ -43,7 +43,6 @@ public class APIFactory {
 
 
     public void post(String url,Map<String,String> map,Observer<String> observer){
-
         RetrofitUtils.getInstance().post(url,map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
