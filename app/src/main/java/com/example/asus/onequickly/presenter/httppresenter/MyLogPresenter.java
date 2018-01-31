@@ -3,6 +3,7 @@ package com.example.asus.onequickly.presenter.httppresenter;
 import android.content.Context;
 
 import com.example.asus.onequickly.model.bean.LoginBean;
+import com.example.asus.onequickly.model.bean.UserInfoBean;
 import com.example.asus.onequickly.model.http.HttpLoginModel;
 import com.example.asus.onequickly.utils.httputils.AbstractObserver;
 import com.example.asus.onequickly.view.viewcallback.IlogView;
@@ -19,11 +20,11 @@ public class MyLogPresenter extends BasePresenter<IlogView> {
         model=new HttpLoginModel();
     }
     //登录方法
-    public void login(String mobile,String password,String token){
-        model.getmodellogin(mobile, password, token, new AbstractObserver<LoginBean>() {
+    public void login(String mobile,String password,String toKen){
+        model.getmodellogin(mobile, password, toKen, new AbstractObserver<LoginBean>() {
             @Override
             public void onSuccess(LoginBean loginBean) {
-                view.Logindata(loginBean);
+                view.loginData(loginBean);
             }
 
             @Override
@@ -31,6 +32,21 @@ public class MyLogPresenter extends BasePresenter<IlogView> {
 
             }
         });
+    }
+
+    public void getUserInfo(String uid,String toKen){
+        model.getUserInfo(uid, toKen, new AbstractObserver<UserInfoBean>() {
+            @Override
+            public void onSuccess(UserInfoBean userInfoBean) {
+                view.showUserInfo(userInfoBean);
+            }
+
+            @Override
+            public void onFailure(int code) {
+
+            }
+        });
+
     }
 
 

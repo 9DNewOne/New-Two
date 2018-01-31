@@ -84,8 +84,6 @@ public class MyFollowActivity extends BaseActivity<IFollowListView,MyFollowListP
             follow_recycler.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         }
-
-
     }
 
     @Override
