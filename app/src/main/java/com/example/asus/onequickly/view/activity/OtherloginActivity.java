@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.asus.onequickly.R;
 import com.example.asus.onequickly.model.bean.LoginBean;
+import com.example.asus.onequickly.model.bean.UserInfoBean;
 import com.example.asus.onequickly.presenter.httppresenter.MyLogPresenter;
 import com.example.asus.onequickly.view.viewcallback.IlogView;
 
@@ -135,11 +136,11 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
 
     }
 
+
+
     @Override
-    public void Logindata(LoginBean loginBean) {
+    public void loginData(LoginBean loginBean) {
         String msg = loginBean.getMsg();
-
-
         if (msg.equals("登录成功"))
         {
             Toast.makeText(OtherloginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
@@ -151,11 +152,10 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
 
         if (msg.equals("登录成功")){
             //Object icon = loginBean.getData().getIcon();
-              startActivity(new Intent(OtherloginActivity.this,MainActivity.class));
-              finish();
+            startActivity(new Intent(OtherloginActivity.this,MainActivity.class));
+            finish();
 
-
-           //登录成功的uid
+            //登录成功的uid
             int uid = loginBean.getData().getUid();
 
             //登录成功的token
@@ -163,13 +163,13 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
 
             //登录到的状态
             boolean Islogin = loginBean.getData().isIslogin();
-                Islogin=true;
+            Islogin=true;
             //提取保存
-                       SharedPreferences.Editor editor = sharedPreferences.edit();
-                       editor.putString("token",token);
-                       editor.putInt("uid",uid);
-                       editor.putBoolean("Islogin",Islogin);
-                       editor.commit();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("token",token);
+            editor.putInt("uid",uid);
+            editor.putBoolean("Islogin",Islogin);
+            editor.commit();
 
         }
         String code = loginBean.getCode();
@@ -178,6 +178,11 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
             Toast.makeText(OtherloginActivity.this, "账号逾期请重新注册", Toast.LENGTH_SHORT).show();
 
         }
+
+    }
+
+    @Override
+    public void showUserInfo(UserInfoBean userInfo) {
 
     }
 }

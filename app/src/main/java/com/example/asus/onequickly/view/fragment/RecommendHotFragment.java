@@ -14,9 +14,11 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.asus.onequickly.R;
+import com.example.asus.onequickly.model.bean.BannerBean;
+import com.example.asus.onequickly.presenter.httppresenter.HotPresenter;
 import com.example.asus.onequickly.utils.app.FrescoApplication;
-
-
+import com.example.asus.onequickly.view.adapter.RecommendHotRlvAdapter;
+import com.example.asus.onequickly.view.viewcallback.HotView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,7 +27,7 @@ import butterknife.Unbinder;
 /**
  * 热门
  */
-public class HotFragment extends Fragment{
+public class RecommendHotFragment extends BaseFragment<HotView, HotPresenter> implements HotView {
 
     private static final String TAG = "HotFragment";
 
@@ -34,9 +36,9 @@ public class HotFragment extends Fragment{
     Unbinder unbinder;
 
     private Context context;
-//    private HotRlvAdapter rlvAdapter;
+    private RecommendHotRlvAdapter rlvAdapter;
 
-    public HotFragment() {
+    public RecommendHotFragment() {
         context = FrescoApplication.getContext();
     }
 
@@ -49,17 +51,21 @@ public class HotFragment extends Fragment{
         return view;
     }
 
-//    @Override
-//    public HotPresenter initPresenter() {
-//        return new HotPresenter();
-//    }
+    @Override
+    public HotPresenter initpresenter() {
+        return new HotPresenter();
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        hotRlv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
 
-//        presenter.gainNetRequest();
+        rlvAdapter = new RecommendHotRlvAdapter();
+
+        presenter.gainNetRequest();
+
     }
 
     @Override
@@ -70,24 +76,29 @@ public class HotFragment extends Fragment{
 
     /**
      * 获取数据
-     *
-     * @param icons 轮播图的数据
+     * @param bannerBean 请求数据
      */
-//    @Override
-//    public void showBannerList(List<String> icons) {
-//        Log.e(TAG, "showBannerList: " + icons.size());
-////        rlvAdapter.getData(icons);
-//        rlvAdapter = new HotRlvAdapter(icons);
-//
-//        hotRlv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-//
-//        hotRlv.setAdapter(rlvAdapter);
-//
-//    }
-//
-//    @Override
-//    public void showToast(int e) {
-//
-//        Toast.makeText(context, "" + e, Toast.LENGTH_SHORT).show();
-//    }
+    @Override
+    public void showBannerList(BannerBean bannerBean) {
+
+        if (bannerBean != null) {
+            Log.e(TAG, "showBannerList: " + bannerBean.getData().size());
+            rlvAdapter.getBannerData(bannerBean.getData());
+
+            hotRlv.setAdapter(rlvAdapter);
+
+        }
+    }
+
+    /**
+     * 请求失败
+     *
+     * @param e 错误码
+     */
+
+    @Override
+    public void showToast(int e) {
+
+        Toast.makeText(context, "" + e, Toast.LENGTH_SHORT).show();
+    }
 }

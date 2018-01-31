@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.asus.onequickly.view.fragment.AttentionFragment;
-import com.example.asus.onequickly.view.fragment.HotFragment;
+import com.example.asus.onequickly.view.fragment.RecommendHotFragment;
 
 
 /**
@@ -28,12 +28,12 @@ public class RecommendPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         if (position == Hot) {
 
-            return new HotFragment();
+            return new RecommendHotFragment();
         } else if (position == ATTENTION) {
             return new AttentionFragment();
         }
 
-        return new HotFragment();
+        return new RecommendHotFragment();
 
     }
 

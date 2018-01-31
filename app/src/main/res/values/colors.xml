@@ -6,4 +6,5 @@
 
     <color name="textBlack">#000000</color>
     <color name="textColor">#cccccc</color>
+    <color name="colorWhile">#ffffff</color>
 </resources>

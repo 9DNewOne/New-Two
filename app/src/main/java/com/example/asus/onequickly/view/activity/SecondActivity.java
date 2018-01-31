@@ -9,10 +9,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.asus.onequickly.R;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Map;
   /*
@@ -30,12 +34,12 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-          BackpageUp();//箭头图片返回上一页
-          weixinlog();  //微信第三方登录
-          otherlog();//其他方式登录
-          //QQ第三方登录
-          Button qqlonginbtn=findViewById(R.id.qqlonginbtn);
-          qqlonginbtn.setOnClickListener(new View.OnClickListener() {
+        BackpageUp();//箭头图片返回上一页
+        weixinlog();  //微信第三方登录
+        otherlog();//其他方式登录
+        //QQ第三方登录
+        Button qqlonginbtn = findViewById(R.id.qqlonginbtn);
+        qqlonginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UMShareAPI.get(SecondActivity.this).getPlatformInfo(SecondActivity.this, SHARE_MEDIA.QQ, authListener);
@@ -67,11 +71,11 @@ public class SecondActivity extends AppCompatActivity {
             String iconurl = data.get("iconurl");
             String name = data.get("name");
             String grander = data.get("gender");
-            Toast.makeText(SecondActivity.this, "登录成功"+ name+ grander, Toast.LENGTH_LONG).show();
-            Log.i("-----------",iconurl + name + grander);
-
+            Toast.makeText(SecondActivity.this, "登录成功" + name + grander, Toast.LENGTH_LONG).show();
+            Log.i("-----------", iconurl + name + grander);
 
         }
+
         /**
          * @desc 授权失败的回调
          * @param platform 平台名称
@@ -80,8 +84,9 @@ public class SecondActivity extends AppCompatActivity {
          */
         @Override
         public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-            Toast.makeText(SecondActivity.this, "失败：" + t.getMessage(),                                  Toast.LENGTH_LONG).show();
+            Toast.makeText(SecondActivity.this, "失败：" + t.getMessage(), Toast.LENGTH_LONG).show();
         }
+
         /**
          * @desc 授权取消的回调
          * @param platform 平台名称
@@ -95,12 +100,12 @@ public class SecondActivity extends AppCompatActivity {
 
     private void otherlog() {
         //其他方式登录
-        TextView  textviewqita=findViewById(R.id.textviewqita);
+        TextView textviewqita = findViewById(R.id.textviewqita);
         textviewqita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SecondActivity.this,OtherloginActivity.class));
-               finish();
+                startActivity(new Intent(SecondActivity.this, OtherloginActivity.class));
+                finish();
 
             }
         });
@@ -116,12 +121,12 @@ public class SecondActivity extends AppCompatActivity {
 
     private void weixinlog() {
         //微信第三方登录
-        Button weixinbutton=findViewById(R.id.weixinbutton);
+        Button weixinbutton = findViewById(R.id.weixinbutton);
         weixinbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //集成推送
-                Toast.makeText(SecondActivity.this,"sdfgbsdf",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SecondActivity.this, "sdfgbsdf", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -129,7 +134,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private void BackpageUp() {
         //箭头图片返回上一页
-        ImageView imaeviewback=findViewById(R.id.imageback);
+        ImageView imaeviewback = findViewById(R.id.imageback);
         imaeviewback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,8 +143,6 @@ public class SecondActivity extends AppCompatActivity {
         });
 
     }
-
-
 
 
 }

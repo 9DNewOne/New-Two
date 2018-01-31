@@ -18,10 +18,10 @@ public class OkHttpUtils {
             synchronized (OkHttpUtils.class){
                 if(client == null){
                     client = new OkHttpClient.Builder()
-                            .connectTimeout(20000, TimeUnit.SECONDS)
-                            .writeTimeout(20000,TimeUnit.SECONDS)
+                            .connectTimeout(50000, TimeUnit.SECONDS)
+                            .writeTimeout(50000,TimeUnit.SECONDS)
                             .addInterceptor(new LoggingInterceptor())
-                            .readTimeout(20000,TimeUnit.SECONDS)
+                            .readTimeout(50000,TimeUnit.SECONDS)
                             .build();
                 }
             }
