@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "我的收藏", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_Search:
-                        Toast.makeText(MainActivity.this, "搜索好友", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, SearchUserActivity.class));
                         break;
                     case R.id.action_inform:
                         Toast.makeText(MainActivity.this, "消息通知", Toast.LENGTH_SHORT).show();
