@@ -58,7 +58,8 @@
             android:value="${UMENG_CHANNEL_VALUE}" />
 
         <activity android:name=".view.activity.MyFollowActivity" />
-        <activity android:name=".view.activity.HotFollowActivity"></activity>
+        <activity android:name=".view.activity.HotFollowActivity" />
+        <activity android:name=".view.activity.SearchUserActivity"></activity>
     </application>
 
 </manifest>
