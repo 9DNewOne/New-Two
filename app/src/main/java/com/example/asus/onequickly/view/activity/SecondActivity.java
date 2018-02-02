@@ -46,7 +46,6 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-
          authListener = new UMAuthListener() {
             /**
              * @desc 授权开始的回调
@@ -54,8 +53,8 @@ public class SecondActivity extends AppCompatActivity {
              */
             @Override
             public void onStart(SHARE_MEDIA platform) {
-
             }
+
 
             /**
              * @desc 授权成功的回调
@@ -74,7 +73,7 @@ public class SecondActivity extends AppCompatActivity {
 
                 Toast.makeText(SecondActivity.this, "登录成功"+ name + grander, Toast.LENGTH_LONG).show();
                 Log.i("-----------", iconurl + name + grander);
-                
+
 
             }
 
@@ -103,13 +102,11 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
 
     }
-
 
     private void otherlog() {
         //其他方式登录

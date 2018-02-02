@@ -31,6 +31,8 @@
         <activity android:name=".view.activity.RegisterActivity" />
         <activity android:name=".view.activity.MainActivity" />
         <activity android:name=".view.activity.SecondActivity" />
+        <activity android:name=".view.activity.SeetingActivity"></activity>
+
 
 
 

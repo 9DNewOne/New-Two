@@ -21,7 +21,6 @@ android {
         }
     }
 
-
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -30,9 +29,9 @@ android {
             keyPassword "android"
         }
     }
+
     productFlavors {
-
-
+    }
     productFlavors{
         xiaomi {}
         qh360 {}
@@ -83,5 +82,7 @@ dependencies {
     compile 'com.carson_ho:SearchLayout:1.0.1'
     //banner
     compile 'com.youth.banner:banner:1.4.10'  //最新版本
+
+
 
 }

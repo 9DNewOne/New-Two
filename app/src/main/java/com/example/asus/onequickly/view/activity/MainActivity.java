@@ -28,7 +28,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-
+    private long lastTime;
     @BindView(R.id.view_navigation)
     NavigationView mViewNavigationView;
     @BindView(R.id.drawer_layout)
@@ -129,9 +129,12 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "我的作品", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.ic_menu_set:
+
+                        startActivity(new Intent(MainActivity.this,SeetingActivity.class));
+
+
                         Toast.makeText(MainActivity.this, "设置", Toast.LENGTH_SHORT).show();
                         break;
-
                 }
 
                 //关闭侧拉
@@ -149,5 +152,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
+
+    @Override  //双击退出
+    public void onBackPressed(){
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - lastTime < 2 * 1000) {
+            super.onBackPressed();
+        } else {
+            Toast.makeText(this, "请再按一次", Toast.LENGTH_SHORT).show();
+            lastTime = currentTime;
+        }
+    }
+
+
 
 }
