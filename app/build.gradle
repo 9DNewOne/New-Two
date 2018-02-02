@@ -12,12 +12,16 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         flavorDimensions "versionCode"
     }
+
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -26,6 +30,8 @@ android {
             keyPassword "android"
         }
     }
+
+
     productFlavors{
         xiaomi {}
         qh360 {}
@@ -65,15 +71,14 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     //下标题栏
     compile 'com.hjm:BottomTabBar:1.1.1'
+    //banner
+    compile 'com.youth.banner:banner:1.4.10'
+    //最新版本
     implementation files('libs/SocialSDK_QQ_Simplify.jar')
     implementation files('libs/umeng_shareboard_widget.jar')
     implementation files('libs/umeng_social_api.jar')
     implementation files('libs/umeng_social_net.jar')
     implementation files('libs/umeng_social_shareboard.jar')
     implementation files('libs/umeng_social_tool.jar')
-    compile 'com.umeng.analytics:analytics:5.6.1'
-
-    //banner
-    compile 'com.youth.banner:banner:1.4.10'  //最新版本
 
 }
