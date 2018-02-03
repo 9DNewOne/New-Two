@@ -10,12 +10,6 @@ import android.widget.TextView;
 
 import com.example.asus.onequickly.R;
 import com.example.asus.onequickly.view.adapter.MyHotFollowAdapter;
-import com.example.asus.onequickly.view.fragment.HotFollowEncouragementFragment;
-import com.example.asus.onequickly.view.fragment.HotFollowFineFoodFragment;
-import com.example.asus.onequickly.view.fragment.HotFollowFunneyFragment;
-import com.example.asus.onequickly.view.fragment.HotFollowGoodFaceFragment;
-import com.example.asus.onequickly.view.fragment.HotFollowNetRedFragment;
-import com.example.asus.onequickly.view.fragment.HotFollowNewsFragment;
 import com.example.asus.onequickly.view.fragment.MyLocalProductionFragment;
 import com.example.asus.onequickly.view.fragment.MyUpedProductionFragment;
 
@@ -75,10 +69,8 @@ public class MyproductionActivity extends AppCompatActivity {
             public void onTabUnselected(TabLayout.Tab tab) {
 
             }
-
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
 
