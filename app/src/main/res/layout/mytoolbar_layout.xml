@@ -16,7 +16,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/x16"
             android:layout_marginStart="@dimen/x16"
-            fresco:placeholderImage="@mipmap/ic_launcher"
+            fresco:placeholderImage="@mipmap/user_icon"
             fresco:roundAsCircle="true" />
 
         <TextView

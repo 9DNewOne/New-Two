@@ -13,9 +13,11 @@ import com.example.asus.onequickly.view.fragment.MoviesNearbyFragment;
 public class MoviesPageAdapter extends FragmentPagerAdapter {
     private static int Hot = 0;     //热门
     private static int nearby = 1;  //附近
+
     private String[] mTitles = new String[]{"热门", "附近"};
     public MoviesPageAdapter(FragmentManager fm) {
         super(fm);
+
     }
     @Override
     public Fragment getItem(int position) {
@@ -24,8 +26,10 @@ public class MoviesPageAdapter extends FragmentPagerAdapter {
         } else if (position == nearby) {
             return new MoviesNearbyFragment();
         }
-        return new MoviesHotFragment();
+       return new MoviesHotFragment();  //默认是热门这个fragment
     }
+
+
     @Override
     public int getCount() {
         return mTitles.length;

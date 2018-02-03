@@ -37,7 +37,6 @@ public class MyproductionActivity extends AppCompatActivity {
     private String[] titles = new String[]{"本地作品", "已上传"};
     private List<Fragment> fragments = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

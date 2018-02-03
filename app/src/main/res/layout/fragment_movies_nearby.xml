@@ -5,9 +5,12 @@
     tools:context="com.example.asus.onequickly.view.fragment.MoviesNearbyFragment">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="大强" />
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/moviesNearbyXrecycleview01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </com.jcodecraeer.xrecyclerview.XRecyclerView>
+
 
 </FrameLayout>

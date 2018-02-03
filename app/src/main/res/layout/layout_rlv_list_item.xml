@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
@@ -13,13 +14,14 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/rlv_list_userIcon"
             android:layout_width="@dimen/x40"
             android:layout_height="@dimen/y40"
             android:layout_marginLeft="@dimen/x16"
             android:layout_marginStart="@dimen/x16"
-            android:src="@mipmap/ic_launcher" />
+            fresco:roundAsCircle="true" />
+        <!--实际图像的缩放类型 actualImageScaleType-->
 
         <LinearLayout
             android:layout_width="0dp"
@@ -53,6 +55,7 @@
             android:layout_height="@dimen/y40"
             android:layout_marginEnd="@dimen/y16"
             android:layout_marginRight="@dimen/y16"
+            android:scaleType="fitCenter"
             android:src="@mipmap/ic_launcher_round" />
     </LinearLayout>
 
@@ -73,12 +76,11 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/publish_Img"
+        <cn.jzvd.JZVideoPlayerStandard
+            android:id="@+id/publish_Player"
             android:layout_width="match_parent"
             android:layout_height="@dimen/y150"
-            android:layout_marginTop="6dp"
-            android:src="@mipmap/drawerlayout_background" />
+            android:layout_marginTop="6dp" />
 
     </LinearLayout>
 </LinearLayout>

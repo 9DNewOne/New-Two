@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,12 +18,11 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.asus.onequickly.R;
 import com.example.asus.onequickly.model.bean.ThreeBean;
-import com.example.asus.onequickly.model.bean.UserInfoBean;
 import com.example.asus.onequickly.view.customview.MyToolBar;
+import com.example.asus.onequickly.view.fragment.InterestingNewsFragment;
 import com.example.asus.onequickly.view.fragment.MoviesFragment;
 import com.example.asus.onequickly.view.fragment.PhotosFragment;
 import com.example.asus.onequickly.view.fragment.Recommendfragment;
-import com.example.asus.onequickly.view.fragment.SatinFragment;
 import com.hjm.bottomtabbar.BottomTabBar;
 
 import org.greenrobot.eventbus.EventBus;
@@ -32,6 +30,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.jzvd.JZVideoPlayer;
 
 public class MainActivity extends AppCompatActivity {
     private long lastTime;
@@ -49,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView id_username;
     private TextView id_link;
 
-
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +56,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
         EventBus.getDefault().register(this);
 
-
-
         mainToolBar.setTittle(getString(R.string.BottomRecommend));
-        //点击头像选择登录     跳转activity 选择登录方式
+
+        //点击头像选择登录//////跳转activity 选择登录方式
         View headerView = mViewNavigationView.getHeaderView(0);
         id_username = headerView.findViewById(R.id.id_username);
         id_link = headerView.findViewById(R.id.id_link);
@@ -73,19 +69,18 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("CommitPrefEdits")
             @Override
             public void onClick(View v) {
-
                 startActivity(new Intent(MainActivity.this, SecondActivity.class));
-
             }
         });
-        ////////////////////////////////////////底部导航//////////////////////////////
+
+        //////底部导航//////
         mBottomBar.init(getSupportFragmentManager())
                 .setImgSize(40, 40)
                 .setFontSize(10)
                 .setTabPadding(6, 6, 10)
                 .setChangeColor(Color.BLUE, Color.DKGRAY)
                 .addTabItem(getString(R.string.BottomRecommend), R.mipmap.tuijian_select, Recommendfragment.class)
-                .addTabItem(getString(R.string.crosstalk), R.mipmap.duanzi_default, SatinFragment.class)
+                .addTabItem(getString(R.string.crosstalk), R.mipmap.duanzi_default, InterestingNewsFragment.class)
                 .addTabItem(getString(R.string.video), R.mipmap.video_defaults, MoviesFragment.class)
                 .addTabItem(getString(R.string.funny_pictures), R.mipmap.qutuu, PhotosFragment.class)
                 .isShowDivider(false)
@@ -110,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        //////////////////////////////////////NavigationView导航菜单////////////////////////////////////////////////
+        /////NavigationView导航菜单/////
         mViewNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             @Override
@@ -123,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, MyFollowActivity.class));
                         break;
                     case R.id.action_collect://我的收藏
-                        Toast.makeText(MainActivity.this, "我的收藏", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, CollecActivity.class));
                         break;
                     case R.id.action_Search:
                         startActivity(new Intent(MainActivity.this, SearchUserActivity.class));
@@ -149,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
                 //关闭侧拉
                 mDrawerLayout.closeDrawers();
                 return false;
-
             }
         });
 
@@ -158,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick() {
                 mDrawerLayout.openDrawer(Gravity.LEFT);
-
             }
         });
 
@@ -173,9 +166,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     @Override  //双击退出
     public void onBackPressed(){
+        if (JZVideoPlayer.backPress()) {
+            return;
+        }
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastTime < 2 * 1000) {
             super.onBackPressed();
@@ -185,12 +180,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
          EventBus.getDefault().unregister(this);
-
       }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JZVideoPlayer.releaseAllVideos();
+    }
+
 }
