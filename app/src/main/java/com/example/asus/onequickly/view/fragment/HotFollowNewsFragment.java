@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import com.example.asus.onequickly.R;
 
-
 /**
  *  新闻
  */
