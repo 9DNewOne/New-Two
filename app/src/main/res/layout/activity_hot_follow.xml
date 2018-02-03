@@ -9,12 +9,12 @@
         android:id="@+id/my_follow_hot_head"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorPrimary"
         >
         <TextView
             android:id="@+id/my_hotfollow_back"
             android:layout_margin="16dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/btn_cancle"
             android:text=" 返回"
             android:textSize="16sp"
             android:layout_width="wrap_content"
@@ -27,12 +27,12 @@
             android:textSize="16sp"
             android:text="热门关注"
             android:layout_toLeftOf="@+id/my_hotfollow"
-            android:textColor="@android:color/white"
+            android:textColor="@color/btn_cancle"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <FrameLayout
             android:id="@+id/my_hotfollow"
-            android:textColor="@android:color/white"
+            android:textColor="@color/btn_cancle"
             android:layout_alignParentRight="true"
             android:layout_width="150dp"
             android:layout_height="match_parent" >

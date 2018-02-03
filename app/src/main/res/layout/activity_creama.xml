@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary">
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/btn_cancel"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorWhile"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="@string/creation"
+            android:layout_toRightOf="@id/btn_cancel"
+            android:layout_marginLeft="60dp"
+            android:textColor="@color/colorWhile"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/creama_img"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/creama_img"
+        android:scaleType="centerCrop"
+        android:layout_below="@id/head"/>
+
+    <Button
+        android:id="@+id/btn_video"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/creama_shape"
+        android:text="@string/btn_video" />
+
+    <Button
+        android:id="@+id/btn_anepisode"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/btn_video"
+        android:layout_alignStart="@+id/btn_video"
+        android:layout_below="@+id/btn_video"
+        android:layout_gravity="center"
+        android:layout_marginTop="54dp"
+        android:background="@drawable/creama_shape"
+        android:text="@string/btn_anepisode" />
+
+</RelativeLayout>

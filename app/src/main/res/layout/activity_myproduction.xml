@@ -9,7 +9,7 @@
         android:id="@+id/myproduction_head"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorPrimary"
         >
         <TextView
             android:id="@+id/myproduction_back"
