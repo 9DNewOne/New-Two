@@ -98,6 +98,4 @@ public class MyToolBar extends RelativeLayout {
     public MyToolBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
-
 }
