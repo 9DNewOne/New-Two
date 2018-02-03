@@ -19,18 +19,20 @@
         android:layout_toRightOf="@+id/follow_list_icon"
         android:layout_margin="@dimen/x16"
         android:orientation="vertical"
-        android:layout_width="@dimen/x150"
-        android:layout_height="@dimen/x50">
+        android:layout_width="200dp"
+        android:layout_height="@dimen/x70">
         <TextView
             android:layout_weight="1"
             android:id="@+id/follow_name"
             android:text="asdasdsadsadsa"
+            android:textSize="9sp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <TextView
             android:layout_weight="1"
             android:id="@+id/follow_description"
             android:text="aaaaaaaaaaaa"
+            android:textSize="8sp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
@@ -38,7 +40,7 @@
         android:layout_marginTop="@dimen/x16"
         android:id="@+id/follow_right"
         android:layout_alignParentRight="true"
-        android:layout_width="@dimen/x200"
+        android:layout_width="@dimen/x150"
         android:layout_height="@dimen/x50">
         <TextView
             android:layout_toLeftOf="@+id/inicon"
@@ -46,6 +48,7 @@
             android:id="@+id/follow_createtime"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textSize="9sp"
             android:text="asd"
             />
         <ImageView
