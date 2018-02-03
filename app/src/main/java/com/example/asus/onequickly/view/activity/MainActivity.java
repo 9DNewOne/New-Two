@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "夜间模式", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.ic_menu_my_works:
-                        Toast.makeText(MainActivity.this, "我的作品", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, MyproductionActivity.class));
                         break;
                     case R.id.ic_menu_set:
                         Toast.makeText(MainActivity.this, "设置", Toast.LENGTH_SHORT).show();
