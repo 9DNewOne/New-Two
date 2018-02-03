@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.asus.onequickly.presenter.httppresenter.BasePresenter;
 
+import butterknife.ButterKnife;
+
 
 /**
  * Created by asus on 2018/1/25.

@@ -20,6 +20,7 @@
             android:layout_height="@dimen/y40"
             android:layout_marginLeft="@dimen/x16"
             android:layout_marginStart="@dimen/x16"
+            android:background="@mipmap/user_icon"
             fresco:roundAsCircle="true" />
         <!--实际图像的缩放类型 actualImageScaleType-->
 
@@ -59,28 +60,13 @@
             android:src="@mipmap/ic_launcher_round" />
     </LinearLayout>
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/y16"
         android:layout_marginLeft="@dimen/x16"
+        android:text="印度情报部门称：“中国战争愿望空前高涨，每一个城市几乎每一条街道都明目张胆的贴着标语——打印、激光打印、快速打印、双面打印，特别值得注意的是双面打印，可能和巴基斯坦有关。。。”、双面打印，特别值得注意的是双面打印，可能和巴基斯坦有关。。。”"
         android:layout_marginRight="@dimen/y16"
-        android:layout_marginStart="@dimen/x16"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="天气美美的，适合郊游"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <cn.jzvd.JZVideoPlayerStandard
-            android:id="@+id/publish_Player"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/y150"
-            android:layout_marginTop="6dp" />
-
-    </LinearLayout>
+        android:layout_marginStart="@dimen/x16" />
 </LinearLayout>
