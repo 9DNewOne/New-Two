@@ -158,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick() {
                 mDrawerLayout.openDrawer(Gravity.LEFT);
-
             }
         });
 
