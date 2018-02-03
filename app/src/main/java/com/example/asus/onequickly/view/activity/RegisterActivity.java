@@ -1,8 +1,5 @@
 package com.example.asus.onequickly.view.activity;
 
-
-
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -15,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asus.onequickly.R;
-import com.example.asus.onequickly.model.bean.LoginBean;
+
 import com.example.asus.onequickly.model.bean.RegistBean;
 import com.example.asus.onequickly.presenter.httppresenter.MyRegistPresenter;
 import com.example.asus.onequickly.view.viewcallback.IregistView;
@@ -35,6 +32,7 @@ public class RegisterActivity extends BaseActivity<IregistView,MyRegistPresenter
     @Override
     public MyRegistPresenter addpresenter() {
         return new MyRegistPresenter(this);
+
     }
 
     @Override

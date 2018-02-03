@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.asus.onequickly.R;
@@ -13,12 +14,19 @@ import com.example.asus.onequickly.R;
 public class SeetingActivity extends AppCompatActivity {
 
     private Button exitlong;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seeting);
         exitlong = findViewById(R.id.exitlong);
+        ImageView imageView=findViewById(R.id.imageView);
+          imageView.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  finish();
+              }
+          });
+
 
         exitlong.setOnClickListener(new View.OnClickListener() {
             @Override
