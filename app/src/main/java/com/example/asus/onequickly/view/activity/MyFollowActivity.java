@@ -37,9 +37,7 @@ public class MyFollowActivity extends BaseActivity<IFollowListView,MyFollowListP
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_follow);
-
         //当没有数据该显示的布局
-
         follow_empty = findViewById(R.id.follow_empty);
         //当有数据时显示的布局
 
