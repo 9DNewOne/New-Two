@@ -2,6 +2,7 @@ package com.example.asus.onequickly.view.viewcallback;
 
 
 import com.example.asus.onequickly.model.bean.BannerBean;
+import com.example.asus.onequickly.model.bean.ProductionBean;
 
 import java.util.List;
 
@@ -16,5 +17,6 @@ public interface HotView {
 
     void showToast(int e);
 
+    void showProductionList(ProductionBean productions);
 
 }

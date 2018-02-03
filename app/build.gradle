@@ -97,4 +97,7 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
 
 
+    compile 'cn.jzvd:jiaozivideoplayer:6.2.7'
+
+
 }

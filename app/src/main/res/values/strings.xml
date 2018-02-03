@@ -18,5 +18,7 @@
     <string name="crosstalk">段子</string>
     <string name="video">视频</string>
     <string name="funny_pictures">趣图</string>
+    <string name="log_out">未登录</string>
+    <string name="signature">编辑个性签名</string>
 
 </resources>

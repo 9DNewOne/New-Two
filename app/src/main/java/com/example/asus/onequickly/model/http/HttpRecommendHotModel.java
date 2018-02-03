@@ -12,11 +12,12 @@ import java.util.Map;
  * Created by win on 2018/1/30.
  */
 
-public class HttpAttentionModel implements IAttentionModel {
+public class HttpRecommendHotModel implements IRecommendHotModel {
 
     @Override
     public void getBannerHttpApi(AbstractObserver<BannerBean> observer) {
         APIFactory.getInstance().get("quarter/getAd?",observer);
+
     }
 
     @Override
@@ -30,4 +31,6 @@ public class HttpAttentionModel implements IAttentionModel {
         APIFactory.getInstance().get("quarter/getVideos",ProductionMap,observer);
 
     }
+
+
 }
