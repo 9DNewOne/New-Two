@@ -9,12 +9,12 @@
         android:id="@+id/myCollec_head"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorPrimary"
         >
         <TextView
             android:id="@+id/my_Collec_back"
             android:layout_margin="16dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/btn_cancle"
             android:text=" 返回"
             android:textSize="16sp"
             android:layout_width="wrap_content"
@@ -27,13 +27,13 @@
             android:textSize="16sp"
             android:text="我的收藏"
             android:layout_toLeftOf="@+id/my_Collec_hotdel"
-            android:textColor="@android:color/white"
+            android:textColor="@color/btn_cancle"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <TextView
             android:id="@+id/my_Collec_hotdel"
             android:layout_margin="16dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/btn_cancle"
             android:text="删除"
             android:layout_alignParentRight="true"
             android:textSize="16sp"

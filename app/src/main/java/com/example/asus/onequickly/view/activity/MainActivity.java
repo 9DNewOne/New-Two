@@ -2,12 +2,15 @@ package com.example.asus.onequickly.view.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView id_username;
     private TextView id_link;
 
+
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +60,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+
         EventBus.getDefault().register(this);
+
+
 
         mainToolBar.setTittle(getString(R.string.BottomRecommend));
 
@@ -69,11 +76,12 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("CommitPrefEdits")
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(MainActivity.this, SecondActivity.class));
+
             }
         });
-
-        //////底部导航//////
+        ////////////////////////////////////////底部导航//////////////////////////////
         mBottomBar.init(getSupportFragmentManager())
                 .setImgSize(40, 40)
                 .setFontSize(10)
@@ -105,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        /////NavigationView导航菜单/////
+        //////////////////////////////////////NavigationView导航菜单////////////////////////////////////////////////
         mViewNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             @Override
@@ -128,6 +136,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.ic_menu_night:
                         Toast.makeText(MainActivity.this, "夜间模式", Toast.LENGTH_SHORT).show();
+                        int mode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+                        if(mode == Configuration.UI_MODE_NIGHT_YES) {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                            mDrawerLayout.closeDrawers();
+                        } else if(mode == Configuration.UI_MODE_NIGHT_NO) {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                            mDrawerLayout.closeDrawers();
+                        }
+                        recreate();
                         break;
                     case R.id.ic_menu_my_works:
                         startActivity(new Intent(MainActivity.this, MyproductionActivity.class));
@@ -141,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 //关闭侧拉
                 mDrawerLayout.closeDrawers();
                 return false;
+
             }
         });
         /////////////////////////////////打开DrawerLayout//////////////////////////////////////////////////
@@ -148,9 +166,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick() {
                 mDrawerLayout.openDrawer(Gravity.LEFT);
+
             }
         });
 
+        mainToolBar.setOnRightButtonClickListener(new MyToolBar.OnRightButtonClickListener() {
+            @Override
+            public void onClick() {
+                startActivity(new Intent(MainActivity.this,CreamaActivity.class));
+            }
+        });
     }
 
     @Subscribe
@@ -161,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
         mainToolBar.setUser_icon(b.getIconurl());
 
     }
+
 
     @Override  //双击退出
     public void onBackPressed(){
@@ -176,9 +202,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
          EventBus.getDefault().unregister(this);
       }
 

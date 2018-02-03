@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text=""
-            android:textColor="#ffffff"
+            android:textColor="@color/colorWhile"
             android:textSize="18sp" />
 
         <RelativeLayout
@@ -48,7 +48,7 @@
             android:background="@drawable/umeng_socialize_btn_bg"
             android:padding="4dp"
             android:text="分享"
-            android:textColor="#ffffff" />
+            android:textColor="@color/colorWhile" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -75,7 +75,7 @@
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@id/umeng_socialize_follow_check"
             android:text="关注官方微博"
-            android:textColor="#f8f8f8"
+            android:textColor="@color/colorWhile"
             android:textSize="16sp"
             android:visibility="gone" />
     </RelativeLayout>
@@ -93,7 +93,7 @@
         android:id="@+id/webView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#F2F5F6"
+        android:background="@color/colorWhile"
         android:layout_above="@id/umeng_socialize_follow"
         android:layout_below="@id/umeng_socialize_titlebar"
         android:visibility="visible" />

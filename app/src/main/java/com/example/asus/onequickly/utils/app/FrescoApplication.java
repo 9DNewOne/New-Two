@@ -2,6 +2,7 @@ package com.example.asus.onequickly.utils.app;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.v7.app.AppCompatDelegate;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.umeng.socialize.PlatformConfig;
@@ -33,6 +34,8 @@ public class FrescoApplication extends Application {
         UMShareAPI.get(this);
         //设置全局上下文
         context=getApplicationContext();
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
 
     public static Context getContext(){
