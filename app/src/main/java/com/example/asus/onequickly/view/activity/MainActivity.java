@@ -13,9 +13,12 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.asus.onequickly.R;
+import com.example.asus.onequickly.model.bean.ThreeBean;
 import com.example.asus.onequickly.model.bean.UserInfoBean;
 import com.example.asus.onequickly.view.customview.MyToolBar;
 import com.example.asus.onequickly.view.fragment.MoviesFragment;
@@ -23,6 +26,9 @@ import com.example.asus.onequickly.view.fragment.PhotosFragment;
 import com.example.asus.onequickly.view.fragment.Recommendfragment;
 import com.example.asus.onequickly.view.fragment.SatinFragment;
 import com.hjm.bottomtabbar.BottomTabBar;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     MyToolBar mainToolBar;
     @BindView(R.id.mbottombar)
     BottomTabBar mBottomBar;
+    private ImageView imageViewBtn;
+    private TextView id_username;
+    private TextView id_link;
 
 
     @SuppressLint("ResourceAsColor")
@@ -49,24 +58,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+
+        EventBus.getDefault().register(this);
+
+
+
         mainToolBar.setTittle(getString(R.string.BottomRecommend));
         //点击头像选择登录     跳转activity 选择登录方式
         View headerView = mViewNavigationView.getHeaderView(0);
-        ImageView imageViewBtn = headerView.findViewById(R.id.TouXiang01);
+        id_username = headerView.findViewById(R.id.id_username);
+        id_link = headerView.findViewById(R.id.id_link);
+        imageViewBtn = headerView.findViewById(R.id.TouXiang01);
         imageViewBtn.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("CommitPrefEdits")
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(MainActivity.this, SecondActivity.class));
 
-//                //判断是否登录
-//                if (sp.getBoolean("Islogin", false)) {
-//
-//                    sp.edit().putBoolean("Islogin",true);
-//                } else {
-//                    Log.e("Login", "onNavigationItemSelected: " + token + "////" + uid);
-//                    presenter.getNetUserInfo(token, uid + "");
-//                }
             }
         });
         ////////////////////////////////////////底部导航//////////////////////////////
@@ -140,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 //关闭侧拉
                 mDrawerLayout.closeDrawers();
                 return false;
+
             }
         });
 
@@ -148,11 +158,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick() {
                 mDrawerLayout.openDrawer(Gravity.LEFT);
+
             }
         });
 
     }
 
+    @Subscribe
+    public void three(ThreeBean b){
+        Glide.with(this).load(b.getIconurl()).into(imageViewBtn);
+        id_username.setText(b.getName());
+        id_link.setText(b.getGrander());
+        mainToolBar.setUser_icon(b.getIconurl());
+
+    }
 
 
     @Override  //双击退出
@@ -167,5 +186,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
+         EventBus.getDefault().unregister(this);
+
+      }
 }

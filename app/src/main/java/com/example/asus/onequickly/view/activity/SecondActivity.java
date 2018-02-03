@@ -9,21 +9,25 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 import com.example.asus.onequickly.R;
+import com.example.asus.onequickly.model.bean.ThreeBean;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.Map;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
   /*
   *  做登录操作的activity
   * */
 
-//  /*
-//   第三方需要5个jar包 在libs 里面 还需要Application里初始化
-//
-// */
+
 public class SecondActivity extends AppCompatActivity {
   private UMAuthListener authListener;
 
@@ -53,6 +57,7 @@ public class SecondActivity extends AppCompatActivity {
              */
             @Override
             public void onStart(SHARE_MEDIA platform) {
+
             }
 
 
@@ -70,12 +75,12 @@ public class SecondActivity extends AppCompatActivity {
                  String iconurl = data.get("iconurl");
                  String  name = data.get("name");
                  String grander = data.get("gender");
+                 String uid = data.get("uid");
 
-                Toast.makeText(SecondActivity.this, "登录成功"+ name + grander, Toast.LENGTH_LONG).show();
-                Log.i("-----------", iconurl + name + grander);
+                 EventBus.getDefault().post(new ThreeBean(name,grander,uid,iconurl));
+                 finish();
 
-
-            }
+             }
 
             /**
              * @desc 授权失败的回调
@@ -85,8 +90,8 @@ public class SecondActivity extends AppCompatActivity {
              */
             @Override
             public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-
                 Toast.makeText(SecondActivity.this, "失败：" + t.getMessage(),                                  Toast.LENGTH_LONG).show();
+
             }
 
             /**

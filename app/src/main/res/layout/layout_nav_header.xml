@@ -40,7 +40,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
-        android:text="编辑个性签名"
+        android:text="性别"
         android:textStyle="bold" />
 
 </RelativeLayout>
