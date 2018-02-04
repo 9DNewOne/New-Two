@@ -19,6 +19,9 @@ import com.example.asus.onequickly.utils.otherutils.SpacesItemDecoration;
 import com.example.asus.onequickly.view.adapter.MyMoviesHotAdapter;
 import com.example.asus.onequickly.view.viewcallback.IMoviesHotView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static android.content.Context.MODE_PRIVATE;
 /**
  * A simple {@link Fragment} subclass.
@@ -50,20 +53,50 @@ public class MoviesHotFragment extends BaseFragment<IMoviesHotView,MyMoviesHotPr
           int uid1 = sp.getInt("uid", 11864);
           presenter.movieshot(uid1+"","10");
 
+        staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        moviesHotrecycleview01.setLayoutManager(staggeredGridLayoutManager);
+
+        /*
+        * http://v.youku.com/v_show/id_XMTY0MjkzMzg3Mg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
+http://v.youku.com/v_show/id_XMTY0MjkzMTI5Mg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
+http://v.youku.com/v_show/id_XMTY0MjkzMjk5Ng==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
+http://v.youku.com/v_show/id_XMTY0Mjk0NDg5Ng==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
+http://v.youku.com/v_show/id_XMTY0Mjk0MzUwOA==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
+http://v.youku.com/v_show/id_XMTY0Mjk0MTExMg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
+http://v.youku.com/v_show/id_XMTY0Mjk0MTExMg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
+http://v.youku.com/v_show/id_XMTMxMjMxMzM4OA==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
+http://v.youku.com/v_show/id_XMTc2NjYzNDIyOA==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
+        *
+        * */
+
+
+        List<String> list=new ArrayList<>();
+          list.add("http://v.youku.com/v_show/id_XMTY0MjkzMzg3Mg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2");
+          list.add("http://v.youku.com/v_show/id_XMTY0MjkzMTI5Mg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2");
+          list.add("http://v.youku.com/v_show/id_XMTY0MjkzMjk5Ng==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2");
+          list.add("http://v.youku.com/v_show/id_XMTY0Mjk0NDg5Ng==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2");
+          list.add("http://v.youku.com/v_show/id_XMTY0Mjk0MzUwOA==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2");
+          list.add("http://v.youku.com/v_show/id_XMTY0Mjk0MTExMg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2");
+          list.add("http://v.youku.com/v_show/id_XMTMxMjMxMzM4OA==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2");
+          list.add("http://v.youku.com/v_show/id_XMTc2NjYzNDIyOA==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2");
+          list.add("http://v.youku.com/v_show/id_XMTY0MjkzMzg3Mg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2");
+
+
+        MyMoviesHotAdapter myAdapter = new MyMoviesHotAdapter(getActivity(),list);
+        moviesHotrecycleview01.setAdapter(myAdapter);
+
+        SpacesItemDecoration decoration=new SpacesItemDecoration(16);
+        moviesHotrecycleview01.addItemDecoration(decoration);
 
     }
-
-
 
     @Override
     public void MoviesHotdata(MoviesBean moviesBean) {
 
-           staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
-           moviesHotrecycleview01.setLayoutManager(staggeredGridLayoutManager);
 
-            Log.i("=======",moviesBean.getMsg());
+            //  Log.i("=======",moviesBean.getMsg());
 
-
+      /*
           //添加到适配器
             MyMoviesHotAdapter myAdapter = new MyMoviesHotAdapter(getActivity(),moviesBean);
             moviesHotrecycleview01.setAdapter(myAdapter);
@@ -72,6 +105,6 @@ public class MoviesHotFragment extends BaseFragment<IMoviesHotView,MyMoviesHotPr
             //设置item之间的间隔
             SpacesItemDecoration decoration=new SpacesItemDecoration(16);
             moviesHotrecycleview01.addItemDecoration(decoration);
-
+*/
     }
 }

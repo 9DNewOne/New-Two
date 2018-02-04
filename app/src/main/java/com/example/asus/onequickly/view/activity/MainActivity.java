@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         id_username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {  //获取用户信息
-
             }
         });
 
@@ -129,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 item.setChecked(false);
-
                 switch (item.getItemId()) {
                     case R.id.action_concern:
                         startActivity(new Intent(MainActivity.this, MyFollowActivity.class));
@@ -180,6 +178,14 @@ public class MainActivity extends AppCompatActivity {
                 mDrawerLayout.openDrawer(Gravity.LEFT);
             }
         });
+
+        mainToolBar.setOnRightButtonClickListener(new MyToolBar.OnRightButtonClickListener() {
+            @Override
+            public void onClick() {
+                startActivity(new Intent(MainActivity.this,CreamaActivity.class));
+            }
+        });
+
 
     }
 

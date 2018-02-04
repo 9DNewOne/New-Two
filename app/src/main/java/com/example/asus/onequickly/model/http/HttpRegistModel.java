@@ -6,7 +6,7 @@ import com.example.asus.onequickly.utils.httputils.AbstractObserver;
 
 import java.util.HashMap;
 import java.util.Map;
-   
+
 /**
  * Created by asus on 2018/1/27.
  */

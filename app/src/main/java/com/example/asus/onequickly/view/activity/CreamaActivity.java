@@ -12,7 +12,7 @@ import com.example.asus.onequickly.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-//tobar右侧发表按钮
+
 public class CreamaActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_cancel)
@@ -49,6 +49,7 @@ public class CreamaActivity extends AppCompatActivity {
         });
 
         btnAnepisode.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CreamaActivity.this,AnepisodeActivity.class));

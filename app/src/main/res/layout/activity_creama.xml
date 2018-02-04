@@ -27,6 +27,7 @@
             android:layout_marginLeft="60dp"
             android:textColor="@color/colorWhile"
             android:gravity="center"/>
+
     </RelativeLayout>
 
     <ImageView
