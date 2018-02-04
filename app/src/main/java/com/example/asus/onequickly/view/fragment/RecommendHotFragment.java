@@ -120,6 +120,4 @@ public class RecommendHotFragment extends BaseFragment<HotView, RecommendHotPres
             hotRlv.setAdapter(rlvAdapter);
         }
     }
-
-
 }
