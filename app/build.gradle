@@ -20,7 +20,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -28,9 +27,6 @@ android {
             keyAlias "androiddebugkey"
             keyPassword "android"
         }
-    }
-
-    productFlavors {
     }
     productFlavors {
         xiaomi {}
@@ -83,7 +79,7 @@ dependencies {
     //banner
     compile 'com.youth.banner:banner:1.4.10'  //最新版本
 
-    //播放视屏
+     //播放视屏
     compile 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.5'
     compile 'cn.jzvd:jiaozivideoplayer:6.2.7'
     compile 'com.squareup.picasso:picasso:2.5.2'

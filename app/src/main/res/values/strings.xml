@@ -21,4 +21,8 @@
     <string name="log_out">未登录</string>
     <string name="signature">编辑个性签名</string>
 
+    <string name="btn_video">视频</string>
+    <string name="btn_anepisode">段子</string>
+    <string name="btn_cancel">取消</string>
+    <string name="creation">创作</string>
 </resources>

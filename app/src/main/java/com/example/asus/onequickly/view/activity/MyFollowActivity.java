@@ -104,7 +104,6 @@ public class MyFollowActivity extends BaseActivity<IFollowListView,MyFollowListP
                 public void onItemClick(View view, int position) {
                     //待处理
                     Toast.makeText(MyFollowActivity.this,""+position,Toast.LENGTH_SHORT).show();
-
                 }
             });
 

@@ -2,12 +2,15 @@ package com.example.asus.onequickly.view.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -142,6 +145,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.ic_menu_night:
                         Toast.makeText(MainActivity.this, "夜间模式", Toast.LENGTH_SHORT).show();
+                        int mode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+                        if(mode == Configuration.UI_MODE_NIGHT_YES) {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                            mDrawerLayout.closeDrawers();
+                        } else if(mode == Configuration.UI_MODE_NIGHT_NO) {
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                            mDrawerLayout.closeDrawers();
+                        }
+                        recreate();
                         break;
                     case R.id.ic_menu_my_works:
                         startActivity(new Intent(MainActivity.this, MyproductionActivity.class));
@@ -168,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
                 mDrawerLayout.openDrawer(Gravity.LEFT);
             }
         });
+
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -182,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
      public void logState(StateBean stateBean){
          id_username.setText(stateBean.getUsername());
      }
+
 
 
 
@@ -202,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
          EventBus.getDefault().unregister(this);
       }
 

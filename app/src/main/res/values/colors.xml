@@ -6,5 +6,7 @@
 
     <color name="textBlack">#000000</color>
     <color name="textColor">#cccccc</color>
-    <color name="colorWhile">#ffffff</color>
+    <color name="colorWhile">#000000</color>
+    <color name="btn_cancle">#ffffff</color>
+
 </resources>
