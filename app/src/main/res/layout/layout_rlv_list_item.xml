@@ -73,6 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="天气美美的，适合郊游"
+            android:textColor="@color/colorWhile"
             android:textSize="16sp"
             android:textStyle="bold" />
 
