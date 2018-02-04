@@ -38,16 +38,12 @@ public class Recommendfragment extends Fragment {
         RecommendPagerAdapter pagerAdapter = new RecommendPagerAdapter(getChildFragmentManager());
         mRecommendVP.setAdapter(pagerAdapter);
         mTab.setupWithViewPager(mRecommendVP);
-
         //设置tabLayout指示器宽度
         mTab.post(new Runnable() {
             @Override
             public void run() {
                 TabUtils.setIndicator(mTab,50,50);
-
             }
         });
-
-
     }
 }

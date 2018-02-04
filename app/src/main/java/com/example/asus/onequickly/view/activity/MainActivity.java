@@ -150,10 +150,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, MyproductionActivity.class));
                         break;
                     case R.id.ic_menu_set:
-
                         startActivity(new Intent(MainActivity.this,SeetingActivity.class));
-
-
                         Toast.makeText(MainActivity.this, "设置", Toast.LENGTH_SHORT).show();
                         break;
                 }
@@ -164,7 +161,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
         /////////////////////////////////打开DrawerLayout//////////////////////////////////////////////////
         mainToolBar.setOnLeftButtonClickListener(new MyToolBar.OnLeftButtonClickListener() {
             @Override

@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import com.example.asus.onequickly.R;
-
+//发表段子activity
 public class AnepisodeActivity extends AppCompatActivity {
     private EditText etContent;
     private View popupWindow;
