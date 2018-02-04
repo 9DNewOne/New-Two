@@ -32,12 +32,12 @@ public class SeetingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 SharedPreferences sp = getSharedPreferences("login",MODE_PRIVATE);
 
                 sp.edit().clear().commit();//清除数据必须要提交:提交以后，文件仍存在，只是文件中的数据被清除了
-
                 Toast.makeText(SeetingActivity.this,"请重新登录",Toast.LENGTH_SHORT).show();
+
+
 
 
                 //3、销毁所有的Activity

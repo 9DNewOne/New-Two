@@ -1,16 +1,17 @@
 package com.example.asus.onequickly.model.bean;
 
 /**
- *  用户信息
- * Created by win on 2018/1/30.
+ * Created by gq on 2018/2/3.
+ *   用户信息
  */
 
+public class Userinformation {
 
-public class UserInfoBean {
+
     /**
      * msg : 获取用户信息成功
      * code : 0
-     * data : {"age":null,"appkey":"ced8580c991e16fb","appsecret":"28CE201C9A394B630A629A9E5BAEA79E","createtime":"2018-01-30T13:50:23","email":null,"fans":2,"follow":2,"gender":null,"icon":null,"latitude":null,"longitude":null,"mobile":"17316250426","money":null,"nickname":"呆萌的郭强","password":"7792A1F7048ECB10FE716CE6FD38E884","praiseNum":null,"token":"FE04C41704BE82CECA90454EA16CFBF1","uid":4305,"userId":null,"username":"17316250426"}
+     * data : {"age":null,"appkey":"ced8580c991e16fb","appsecret":"28CE201C9A394B630A629A9E5BAEA79E","createtime":"2018-02-03T16:15:04","email":null,"fans":2,"follow":6,"gender":null,"icon":null,"latitude":null,"longitude":null,"mobile":"17316250426","money":null,"nickname":"","password":"7792A1F7048ECB10FE716CE6FD38E884","praiseNum":null,"token":"FE04C41704BE82CECA90454EA16CFBF1","uid":4305,"userId":null,"username":"17316250426"}
      */
 
     private String msg;
@@ -46,17 +47,17 @@ public class UserInfoBean {
          * age : null
          * appkey : ced8580c991e16fb
          * appsecret : 28CE201C9A394B630A629A9E5BAEA79E
-         * createtime : 2018-01-30T13:50:23
+         * createtime : 2018-02-03T16:15:04
          * email : null
          * fans : 2
-         * follow : 2
+         * follow : 6
          * gender : null
          * icon : null
          * latitude : null
          * longitude : null
          * mobile : 17316250426
          * money : null
-         * nickname : 呆萌的郭强
+         * nickname :
          * password : 7792A1F7048ECB10FE716CE6FD38E884
          * praiseNum : null
          * token : FE04C41704BE82CECA90454EA16CFBF1
@@ -64,6 +65,7 @@ public class UserInfoBean {
          * userId : null
          * username : 17316250426
          */
+
 
         private Object age;
         private String appkey;
@@ -247,6 +249,3 @@ public class UserInfoBean {
         }
     }
 }
-
-
-

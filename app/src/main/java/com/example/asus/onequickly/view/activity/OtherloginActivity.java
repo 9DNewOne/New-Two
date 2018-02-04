@@ -16,9 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.asus.onequickly.R;
 import com.example.asus.onequickly.model.bean.LoginBean;
+import com.example.asus.onequickly.model.bean.StateBean;
+import com.example.asus.onequickly.model.bean.ThreeBean;
 import com.example.asus.onequickly.model.bean.UserInfoBean;
 import com.example.asus.onequickly.presenter.httppresenter.MyLogPresenter;
 import com.example.asus.onequickly.view.viewcallback.IlogView;
+
+import org.greenrobot.eventbus.EventBus;
 
 
 public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>implements IlogView {
@@ -152,8 +156,6 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
 
         if (msg.equals("登录成功")){
             //Object icon = loginBean.getData().getIcon();
-            startActivity(new Intent(OtherloginActivity.this,MainActivity.class));
-            finish();
 
             //登录成功的uid
             int uid = loginBean.getData().getUid();
@@ -171,7 +173,15 @@ public class OtherloginActivity extends BaseActivity<IlogView,MyLogPresenter>imp
             editor.putBoolean("Islogin",Islogin);
             editor.commit();
 
+            String username = loginBean.getData().getMobile();
+
+//                startActivity(new Intent(OtherloginActivity.this,MainActivity.class));
+
+                  EventBus.getDefault().post(new StateBean(username));
+                  finish();
+
         }
+
         String code = loginBean.getCode();
         if (code.equals("2")){
 

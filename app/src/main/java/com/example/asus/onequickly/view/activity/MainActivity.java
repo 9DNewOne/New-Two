@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.asus.onequickly.R;
+import com.example.asus.onequickly.model.bean.LoginBean;
+import com.example.asus.onequickly.model.bean.StateBean;
 import com.example.asus.onequickly.model.bean.ThreeBean;
 import com.example.asus.onequickly.view.customview.MyToolBar;
 import com.example.asus.onequickly.view.fragment.InterestingNewsFragment;
@@ -27,6 +29,7 @@ import com.hjm.bottomtabbar.BottomTabBar;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,7 +65,18 @@ public class MainActivity extends AppCompatActivity {
 
         //点击头像选择登录//////跳转activity 选择登录方式
         View headerView = mViewNavigationView.getHeaderView(0);
+
+
         id_username = headerView.findViewById(R.id.id_username);
+
+        id_username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {  //获取用户信息
+
+            }
+        });
+
+
         id_link = headerView.findViewById(R.id.id_link);
         imageViewBtn = headerView.findViewById(R.id.TouXiang01);
         imageViewBtn.setOnClickListener(new View.OnClickListener() {
@@ -154,17 +168,22 @@ public class MainActivity extends AppCompatActivity {
                 mDrawerLayout.openDrawer(Gravity.LEFT);
             }
         });
-
     }
 
-    @Subscribe
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void three(ThreeBean b){
         Glide.with(this).load(b.getIconurl()).into(imageViewBtn);
+      //  Toast.makeText(MainActivity.this,""+b.getName(),Toast.LENGTH_SHORT).show();
         id_username.setText(b.getName());
-        id_link.setText(b.getGrander());
         mainToolBar.setUser_icon(b.getIconurl());
-
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+     public void logState(StateBean stateBean){
+         id_username.setText(stateBean.getUsername());
+     }
+
+
 
     @Override  //双击退出
     public void onBackPressed(){

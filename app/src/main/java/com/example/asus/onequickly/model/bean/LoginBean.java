@@ -14,6 +14,12 @@ public class LoginBean {
     private String msg;
     private String code;
     private DataBean data;
+
+    public LoginBean(String username) {
+
+    }
+
+
     public String getMsg()  {
         return msg;
     }
@@ -82,6 +88,13 @@ public class LoginBean {
         private int uid;
         private Object userId;
         private String username;
+
+        public DataBean(String username) {
+            this.username = username;
+        }
+
+
+
         private  boolean islogin;
 
         public boolean isIslogin() {
