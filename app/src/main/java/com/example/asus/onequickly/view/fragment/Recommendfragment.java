@@ -45,7 +45,5 @@ public class Recommendfragment extends Fragment {
                 TabUtils.setIndicator(mTab,50,50);
             }
         });
-
-
     }
 }
