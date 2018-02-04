@@ -60,9 +60,9 @@
         android:layout_below="@+id/my_follow_hot_head"
         android:id="@+id/hot_follow_tab"
         android:layout_width="match_parent"
-        app:tabIndicatorColor="@android:color/holo_blue_light"
-        app:tabTextColor="@android:color/darker_gray"
-        app:tabSelectedTextColor="@android:color/black"
+        app:tabIndicatorColor="@color/colorWhile"
+        app:tabTextColor="@color/colorWhile"
+        app:tabSelectedTextColor="@color/colorWhile"
         android:layout_height="wrap_content" />
 
     <android.support.v4.view.ViewPager
