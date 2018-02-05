@@ -21,12 +21,9 @@ public class AnepisodeActivity extends BaseActivity<IPublishView,MyPublishpresen
     private Button publishbtn;
     private EditText duanzi;
     private TextView publishquxiao;
-
     @Override
     public MyPublishpresenter addpresenter() {
-
         return new MyPublishpresenter(this);
-
     }
 
     @Override
@@ -38,15 +35,14 @@ public class AnepisodeActivity extends BaseActivity<IPublishView,MyPublishpresen
           publishbtn = findViewById(R.id.publishbtn);
         publishquxiao = findViewById(R.id.publishquxiao);
 
-          publishbtn.setOnClickListener(new View.OnClickListener() {
+        publishquxiao.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
                    finish();
               }
           });
 
-
-           publishbtn.setOnClickListener(new View.OnClickListener() {
+          publishbtn.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
                   if (duanzi.getText().toString().equals(""))

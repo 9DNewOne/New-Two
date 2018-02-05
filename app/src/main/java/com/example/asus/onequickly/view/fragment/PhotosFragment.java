@@ -39,17 +39,26 @@ public class PhotosFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         List<Integer> list=new ArrayList<>();
 
-      list.add(R.mipmap.aaa);
-      list.add(R.mipmap.bbb);
-      list.add(R.mipmap.ccc);
-      list.add(R.mipmap.ddd);
-      list.add(R.mipmap.eee);
-      list.add(R.mipmap.fff);
-      list.add(R.mipmap.hhh);
-      list.add(R.mipmap.iii);
-      list.add(R.mipmap.jjj);
-      list.add(R.mipmap.hhh);
-      list.add(R.mipmap.gg);
+
+        list.add(R.mipmap.i);
+        list.add(R.mipmap.j);
+        list.add(R.mipmap.k);
+        list.add(R.mipmap.m);
+        list.add(R.mipmap.l);
+
+      list.add(R.mipmap.zz);
+      list.add(R.mipmap.xx);
+      list.add(R.mipmap.ss);
+      list.add(R.mipmap.nn);
+      list.add(R.mipmap.vv);
+      list.add(R.mipmap.rr);
+
+        list.add(R.mipmap.aaa);
+        list.add(R.mipmap.bbb);
+        list.add(R.mipmap.ccc);
+        list.add(R.mipmap.ddd);
+        list.add(R.mipmap.eee);
+        list.add(R.mipmap.fff);
 
 
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);

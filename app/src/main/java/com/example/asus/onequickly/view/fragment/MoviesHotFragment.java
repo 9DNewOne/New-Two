@@ -56,19 +56,6 @@ public class MoviesHotFragment extends BaseFragment<IMoviesHotView,MyMoviesHotPr
         staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         moviesHotrecycleview01.setLayoutManager(staggeredGridLayoutManager);
 
-        /*
-        * http://v.youku.com/v_show/id_XMTY0MjkzMzg3Mg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
-http://v.youku.com/v_show/id_XMTY0MjkzMTI5Mg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
-http://v.youku.com/v_show/id_XMTY0MjkzMjk5Ng==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
-http://v.youku.com/v_show/id_XMTY0Mjk0NDg5Ng==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
-http://v.youku.com/v_show/id_XMTY0Mjk0MzUwOA==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
-http://v.youku.com/v_show/id_XMTY0Mjk0MTExMg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
-http://v.youku.com/v_show/id_XMTY0Mjk0MTExMg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
-http://v.youku.com/v_show/id_XMTMxMjMxMzM4OA==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
-http://v.youku.com/v_show/id_XMTc2NjYzNDIyOA==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2
-        *
-        * */
-
 
         List<String> list=new ArrayList<>();
           list.add("http://v.youku.com/v_show/id_XMTY0MjkzMzg3Mg==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2");

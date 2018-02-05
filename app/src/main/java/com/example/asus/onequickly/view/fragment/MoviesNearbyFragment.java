@@ -60,7 +60,6 @@ public class MoviesNearbyFragment extends BaseFragment<IMoviesNearbyView,MyMovie
         moviesNearbyXrecycleview01.setLayoutManager(staggeredGridLayoutManager);
 
 
-
         SharedPreferences sp = getActivity().getSharedPreferences("login", MODE_PRIVATE);
 
 

@@ -60,17 +60,13 @@
         <activity android:name=".view.activity.MyFollowActivity" />
         <activity android:name=".view.activity.HotFollowActivity" />
         <activity android:name=".view.activity.SearchUserActivity"></activity>
-        <activity android:name=".view.activity.HotFollowActivity" />
         <activity android:name=".view.activity.CreamaActivity" />
         <activity android:name=".view.activity.AnepisodeActivity"
-                  android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
-        <activity android:name=".view.activity.SearchUserActivity" />
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
         <activity android:name=".view.activity.MyproductionActivity" />
-        <activity android:name=".view.activity.HotFollowActivity" />
         <activity android:name=".view.activity.showreelActivity" />
-        <activity android:name=".view.activity.MyproductionActivity" />
         <activity android:name=".view.activity.CollecActivity" />
-        <activity android:name=".view.activity.UserinformationActivity"></activity>
+        <activity android:name=".view.activity.UserinformationActivity">
+        </activity>
     </application>
-
 </manifest>
